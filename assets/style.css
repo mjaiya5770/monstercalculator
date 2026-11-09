@@ -1402,3 +1402,16 @@ html.nn-embed body{background:transparent}
 .cat-teaser{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);text-decoration:none;font-weight:600;box-shadow:var(--shadow-sm)}
 .cat-teaser:hover{border-color:var(--amber)}
 .cat-teaser span{color:var(--muted);font-weight:500;font-size:.85rem;white-space:nowrap}
+
+/* LIBRARY DENSITY (Nov 8 2026 refinement): /calculators.html renders a compact
+   multi-column grid — icon + name, one-line description, tight padding — so a
+   screenful of tools is visible at once. Homepage grids keep the tall cards. */
+.lib-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:640px){.lib-grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:900px){.lib-grid{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:1180px){.lib-grid{grid-template-columns:repeat(5,1fr)}}
+.lib-grid .tool-card{padding:12px 14px;gap:2px}
+.lib-grid .tool-card .icon{font-size:1.25rem;margin-bottom:2px}
+.lib-grid .tool-card h3{font-size:.95rem;margin:0;line-height:1.25}
+.lib-grid .tool-card p{font-size:.8rem;line-height:1.35;margin:0;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.lib-grid .tool-card::after{display:none}
