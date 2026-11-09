@@ -8,7 +8,8 @@ All 154 calculators are free, with no account or sign-up. Every calculator shows
 
 ## Key pages
 
-- [Home](https://monstercalculator.org/): all 154 calculators, organized by category.
+- [Home](https://monstercalculator.org/): the simple front door — popular calculators, search and category browsing.
+- [All calculators](https://monstercalculator.org/calculators.html): the full library — all 154 calculators on one page, organized by category with a category sub-nav.
 - [Embed these calculators](https://monstercalculator.org/embed.html): put any of the 154 Monster Calculator calculators on your own site for free — no account, no attribution required.
 - [Partnerships](https://monstercalculator.org/partnerships.html): the network Monster Calculator belongs to, and how to partner with us.
 - [Creator ROI Hub — Earnings, Sponsorship & Fee Calculators](https://monstercalculator.org/creator-roi-calculators.html): The Creator ROI Hub: free calculators for people who publish for a living — YouTube and TikTok earnings, sponsorship rates, payment fees and AI API costs, with honest ranges and the math shown.

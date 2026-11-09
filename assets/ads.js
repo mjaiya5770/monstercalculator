@@ -76,6 +76,19 @@
   function loadBanner(el, done) {
     var key = el.getAttribute('data-key');
     var w = parseInt(el.getAttribute('data-w'), 10), h = parseInt(el.getAttribute('data-h'), 10);
+    /* NN-HOUSE-PRELOAD: zero-key (dormant) seats can never fill — the house
+       promo is preloaded in the markup; make sure it is present and SKIP
+       the pointless network invoke entirely (no 15s settle burn, no
+       30s blank window). */
+    if (key && /^0+$/.test(key)) {
+      if (!el.querySelector('.nn-house')) {
+        var zw = document.createElement('div');
+        zw.innerHTML = houseHTML();
+        el.appendChild(zw.firstChild);
+      }
+      el.setAttribute('data-house', '1');
+      done(); return;
+    }
     if (!key || !w || !h || el.getAttribute('data-loaded')) { done(); return; }
     el.setAttribute('data-loaded', '1');
     var startedAt = Date.now();

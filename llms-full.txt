@@ -2,6 +2,7 @@
 
 Every public page, with its title and description. Generated from sitemap.xml.
 
+- [All Calculators — The Full Library of 154 Free Tools](https://monstercalculator.org/calculators.html): Every Monster Calculator tool on one shelf: all 154 free calculators organized by category — real estate, debt & money, freelance, small business, everyday math and home & DIY. No signup, no fees.
 - [Age Calculator — Exact Age in Years, Months & Days](https://monstercalculator.org/tools/age-calculator.html): Free age calculator: find your exact age in years, months, and days, total days lived, day of the week you were born, and countdown to your next birthday. No signup.
 - [AI Job Risk Calculator — Task-Based Exposure Estimate](https://monstercalculator.org/tools/ai-job-risk-calculator.html): Free AI job risk calculator: pick a job preset or set your own task mix across eight kinds of work, and get a transparent exposure band with a per-task breakdown — an estimate from your task mix, not a prediction.
 - [Amortization Calculator — Full Schedule, Extra Payments & Payoff Date](https://monstercalculator.org/tools/amortization-calculator.html): Free amortization calculator with a full monthly or yearly payment schedule. Add extra monthly or one-time payments and see your payoff date move up and interest saved. No signup.

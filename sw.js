@@ -4,6 +4,7 @@ const CACHE = 'monstercalculator-v1';
 const SHELL = [
   '/',
   '/index.html',
+  '/calculators.html',
   '/assets/style.css',
   '/assets/track.js',
   '/assets/site.webmanifest',
