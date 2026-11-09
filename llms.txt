@@ -1,16 +1,16 @@
 # Monster Calculator
 
-Monster Calculator is a free online mega-library of calculators — 154 tools for money, real estate, home projects, health, school and everyday life. Monster Calculator calculates loan and mortgage payments, percentages, taxes, grades, health numbers and project materials; it has nothing to do with numerology.
+Monster Calculator is a free online mega-library of calculators — 176 tools for money, real estate, home projects, health, school and everyday life. Monster Calculator calculates loan and mortgage payments, percentages, taxes, grades, health numbers and project materials; it has nothing to do with numerology.
 
 Made for everyone who needs a number: homeowners and investors, trades and DIYers, students, freelancers and small businesses alike.
 
-All 154 calculators are free, with no account or sign-up. Every calculator shows its formula or method and at least one worked example.
+All 176 calculators are free, with no account or sign-up. Every calculator shows its formula or method and at least one worked example.
 
 ## Key pages
 
 - [Home](https://monstercalculator.org/): the simple front door — popular calculators, search and category browsing.
-- [All calculators](https://monstercalculator.org/calculators.html): the full library — all 154 calculators on one page, organized by category with a category sub-nav.
-- [Embed these calculators](https://monstercalculator.org/embed.html): put any of the 154 Monster Calculator calculators on your own site for free — no account, no attribution required.
+- [All calculators](https://monstercalculator.org/calculators.html): the full library — all 176 calculators on one page, organized by category with a category sub-nav.
+- [Embed these calculators](https://monstercalculator.org/embed.html): put any of the 176 Monster Calculator calculators on your own site for free — no account, no attribution required.
 - [Partnerships](https://monstercalculator.org/partnerships.html): the network Monster Calculator belongs to, and how to partner with us.
 - [Creator ROI Hub — Earnings, Sponsorship & Fee Calculators](https://monstercalculator.org/creator-roi-calculators.html): The Creator ROI Hub: free calculators for people who publish for a living — YouTube and TikTok earnings, sponsorship rates, payment fees and AI API costs, with honest ranges and the math shown.
 - [How to Get Out of Debt: The Avalanche vs Snowball Playbook](https://monstercalculator.org/guides/get-out-of-debt-avalanche-vs-snowball.html)
@@ -26,7 +26,7 @@ All 154 calculators are free, with no account or sign-up. Every calculator shows
 - [How to Calculate Overtime Pay (Time-and-a-Half and Double Time)](https://monstercalculator.org/guides/how-to-calculate-overtime-pay.html)
 - [CD vs Savings Account: The APY Math, Honestly Compared](https://monstercalculator.org/guides/cd-vs-savings-account.html)
 
-## All calculators (18 owned of 154/158 — one-owner rule)
+## All calculators (20 owned of 176/180 — one-owner rule)
 
 ### Real estate investor tools
 - [Buy vs Lease Car Calculator — True Cost per Month, Equity Included](https://monstercalculator.org/tools/buy-vs-lease-car-calculator.html)
@@ -57,6 +57,8 @@ All 154 calculators are free, with no account or sign-up. Every calculator shows
 ### Everyday tools
 
 ### Home & DIY tools
+- [Generator Sizing Calculator — Appliance Checklist to Generator Class](https://monstercalculator.org/tools/generator-sizing-calculator.html)
+- [Water Heater Sizing Calculator — First-Hour Rating by Household](https://monstercalculator.org/tools/water-heater-sizing-calculator.html)
 
 ## Contact
 
