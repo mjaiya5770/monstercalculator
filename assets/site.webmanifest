@@ -1,7 +1,7 @@
 {
-  "name": "Monster Calculator \u2014 Free Online Calculators",
+  "name": "Monster Calculator — Free Online Calculators",
   "short_name": "Monster Calculator",
-  "description": "Monster Calculator is the mega-library of free online calculators: all 154 tools in one place \u2014 money and loans, home projects and estimators, health, dates, school and everyday math. No signup, no fees, just answers.",
+  "description": "Monster Calculator is the mega-library of free online calculators: all 154 tools in one place — money and loans, home projects and estimators, health, dates, school and everyday math. No signup, no fees, just answers.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -17,6 +17,12 @@
       "src": "/assets/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
