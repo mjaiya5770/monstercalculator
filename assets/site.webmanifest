@@ -2,7 +2,7 @@
   "name": "Monster Calculator — Free Online Calculators",
   "short_name": "Monster Calculator",
   "description": "Monster Calculator is the mega-library of free online calculators: all 176 tools in one place — money and loans, home projects and estimators, health, dates, school and everyday math. No signup, no fees, just answers.",
-  "start_url": "/",
+  "start_url": "/calculators.html",
   "scope": "/",
   "display": "standalone",
   "background_color": "#1a2e05",
