@@ -1013,6 +1013,52 @@
      sees them. Deliberate exceptions (no clean results root, skipped):
      the invoice generator (its #preview IS the printable document) and
      the password generator (#pwout output only, no result card). */
+  /* ---------- NN-UI-POLISH: category skin stamper ----------
+     Reads the tool page's own breadcrumb catalog anchor and stamps
+     html[data-skin] with one of six families (money, home, health,
+     everyday, creator, auto). Every NN-UI-POLISH rule in style.css is
+     keyed off that attribute: no stamp, no change. Health tools live
+     under the Everyday catalog slug, so they are slug overrides. The
+     invoice generator is a document tool with its own V2 layout and
+     is never stamped. Unrecognized tool pages fall back to everyday.
+     Non-tool pages are not stamped. */
+  var NN_SKIN_MAP = {
+    'cat-debt-money-tools': 'money',
+    'cat-real-estate-investor-tools': 'money',
+    'cat-small-business-tools': 'money',
+    'cat-home-diy-tools': 'home',
+    'cat-freelancer-tools': 'creator',
+    'cat-car-auto-tools': 'auto',
+    'cat-everyday-tools': 'everyday'
+  };
+  var NN_SKIN_TOOLS = {
+    'bmi-calculator': 'health',
+    'bmr-calculator': 'health',
+    'body-fat-calculator': 'health',
+    'calorie-calculator': 'health',
+    'macro-calculator': 'health',
+    'ovulation-calculator': 'health',
+    'pregnancy-due-date-calculator': 'health',
+    'sleep-calculator': 'health'
+  };
+  function nnStampSkin() {
+    try {
+      var path = location.pathname;
+      if (path.indexOf('/tools/') === -1) return;
+      var slug = path.substring(path.lastIndexOf('/') + 1).replace(/\.html$/, '');
+      if (slug === 'invoice-generator') return;
+      var fam = NN_SKIN_TOOLS[slug];
+      if (!fam) {
+        var a = document.querySelector('.breadcrumb a[href*="#cat-"]');
+        if (a) {
+          var m = (a.getAttribute('href') || '').match(/#(cat-[a-z0-9-]+)/);
+          if (m) fam = NN_SKIN_MAP[m[1]];
+        }
+      }
+      document.documentElement.setAttribute('data-skin', fam || 'everyday');
+    } catch (e) { /* skin is presentation only — never break a tool */ }
+  }
+
   function nnNativeSlots() {
     try {
       function anchor(placement) {
@@ -1072,6 +1118,7 @@
     /* NN-MODAL: capture this site's own 300x250 key for the interstitial seat */
     nnModalKey = nnSiteAdKey('300');
     nnNativeSlots(); /* NN-NATIVE-SLOT */
+    nnStampSkin(); /* NN-UI-POLISH */
     nnShellInit(); /* NN-SHELL-P1 */
     nnFxInit(); /* NN-EFFECTS-P1 */
   }

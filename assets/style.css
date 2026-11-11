@@ -1694,3 +1694,373 @@ html.nn-shell .nn-modal-overlay{display:none!important}
 html.nn-shell .nn-native-slot{display:block;grid-column:1/-1;height:120px}
 html.nn-shell .nn-native-slot[data-placement="results"]{height:280px}
 html.nn-shell .tool-grid.is-searching .nn-native-slot{display:none}
+
+/* ================= NN-UI-POLISH appendix (Nov 10, 2026) =================
+   Category-skin depth pass. Every rule keys off html[data-skin], stamped
+   at runtime by nnStampSkin() in nn-tools.js from the page breadcrumb.
+   Palette: existing tokens only + one new token, --ink-rgb (this tree's
+   own shadow ink, 26,46,5). Print resets in section 8. */
+/* ---------- skin resolution: family -> existing brand tokens ---------- */
+:root { --ink-rgb: 26, 46, 5; }
+html[data-skin="money"]    { --skin-a: var(--teal);      --skin-b: var(--gold); }
+html[data-skin="home"]     { --skin-a: var(--amber);     --skin-b: var(--teal); }
+html[data-skin="health"]   { --skin-a: var(--amber);     --skin-b: var(--gold); }
+html[data-skin="everyday"] { --skin-a: var(--teal);      --skin-b: var(--amber); }
+html[data-skin="creator"]  { --skin-a: var(--gold);      --skin-b: var(--amber); }
+html[data-skin="auto"]     { --skin-a: var(--teal-dark); --skin-b: var(--amber); }
+
+/* ---------- 1. layered backdrop: wash + family pattern + base ---------- */
+html[data-skin="money"] body {
+  background:
+    radial-gradient(1100px 480px at 88% -60px, color-mix(in srgb, var(--skin-a) 10%, transparent), transparent 62%),
+    radial-gradient(900px 520px at -12% 34%, color-mix(in srgb, var(--skin-b) 8%, transparent), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='132' height='132' viewBox='0 0 132 132'%3E%3Cg fill='none' stroke='%2312211f' stroke-opacity='.055' stroke-width='2.5'%3E%3Ccircle cx='28' cy='32' r='12'/%3E%3Cpath d='M50 25h58M50 39h58M14 82h104M14 96h104'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 132px repeat,
+    linear-gradient(180deg, var(--offwhite), var(--surface-warm));
+}
+html[data-skin="home"] body {
+  background:
+    radial-gradient(1100px 480px at 88% -60px, color-mix(in srgb, var(--skin-a) 10%, transparent), transparent 62%),
+    radial-gradient(900px 520px at -12% 34%, color-mix(in srgb, var(--skin-b) 8%, transparent), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='132' height='132' viewBox='0 0 132 132'%3E%3Cg fill='none' stroke='%2312211f' stroke-opacity='.055' stroke-width='2.5'%3E%3Cpath d='M18 74 66 30l48 44M32 66v40h68V66'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 132px repeat,
+    linear-gradient(180deg, var(--offwhite), var(--surface-warm));
+}
+html[data-skin="health"] body {
+  background:
+    radial-gradient(1100px 480px at 88% -60px, color-mix(in srgb, var(--skin-a) 10%, transparent), transparent 62%),
+    radial-gradient(900px 520px at -12% 34%, color-mix(in srgb, var(--skin-b) 8%, transparent), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='132' height='132' viewBox='0 0 132 132'%3E%3Cg fill='none' stroke='%2312211f' stroke-opacity='.055' stroke-width='2.5'%3E%3Cpath d='M8 66h30l8-24 14 46 10-22h54'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 132px repeat,
+    linear-gradient(180deg, var(--offwhite), var(--surface-warm));
+}
+html.nn-embed[data-skin] body { background: transparent; }
+
+/* ---------- 2. the instrument: reframed calculator card ---------- */
+html[data-skin] .nn-calc-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 30px 28px 28px;
+  border: 1px solid var(--border-strong);
+  border-radius: 24px;
+  background:
+    linear-gradient(90deg, var(--skin-a), var(--skin-b)) top left / 100% 5px no-repeat,
+    linear-gradient(180deg, #ffffff 0%, var(--surface-warm) 135%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 2px 3px rgba(var(--ink-rgb), 0.05),
+    0 24px 48px -24px rgba(var(--ink-rgb), 0.30),
+    0 52px 90px -52px rgba(var(--ink-rgb), 0.22);
+}
+/* family watermark glyph — mask tinted by the skin token, behind content */
+html[data-skin] .nn-calc-card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -30px;
+  top: 2px;
+  width: 215px;
+  height: 215px;
+  background: var(--skin-a);
+  opacity: 0.09;
+  pointer-events: none;
+}
+html[data-skin="money"] .nn-calc-card::after {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='black' stroke-width='5'%3E%3Ccircle cx='34' cy='36' r='19'/%3E%3Cpath d='M60 24h32M60 40h32M12 74h76M12 87h76'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='black' stroke-width='5'%3E%3Ccircle cx='34' cy='36' r='19'/%3E%3Cpath d='M60 24h32M60 40h32M12 74h76M12 87h76'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+html[data-skin="home"] .nn-calc-card::after {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='black' stroke-width='5'%3E%3Cpath d='M8 52 50 12l42 40M22 44v44h56V44'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='black' stroke-width='5'%3E%3Cpath d='M8 52 50 12l42 40M22 44v44h56V44'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+html[data-skin="health"] .nn-calc-card::after {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='black' stroke-width='5'%3E%3Cpath d='M4 52h24l7-20 13 40 9-20h39'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='black' stroke-width='5'%3E%3Cpath d='M4 52h24l7-20 13 40 9-20h39'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+/* content cards step back so the instrument dominates the page */
+html[data-skin] main .card:not(.nn-calc-card) { box-shadow: var(--shadow-sm); }
+
+/* ---------- 3. category identity at the title ---------- */
+html[data-skin] .breadcrumb a[href*="#cat-"] {
+  padding: 4px 11px;
+  border: 1px solid color-mix(in srgb, var(--skin-a) 45%, transparent);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--skin-a) 10%, var(--surface));
+  color: var(--teal-darker);
+}
+html[data-skin] .lede {
+  padding-left: 16px;
+  border-left: 3px solid var(--skin-b);
+}
+
+/* ---------- 4. tactile furniture ---------- */
+/* input wells */
+html[data-skin] .nn-calc-card .field input,
+html[data-skin] .nn-calc-card .field textarea {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--skin-a) 5%, var(--surface-warm)), #ffffff 58%);
+  box-shadow: inset 0 2px 5px rgba(var(--ink-rgb), 0.09), inset 0 -1px 0 rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+html[data-skin] .nn-calc-card .field select {
+  background-color: color-mix(in srgb, var(--skin-a) 4%, var(--surface-warm));
+  box-shadow: inset 0 2px 5px rgba(var(--ink-rgb), 0.09), inset 0 -1px 0 rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+html[data-skin] .nn-calc-card .field input:focus,
+html[data-skin] .nn-calc-card .field textarea:focus {
+  background: #fff;
+  border-color: var(--skin-a);
+  box-shadow: var(--focus-ring), inset 0 2px 4px rgba(var(--ink-rgb), 0.05);
+}
+html[data-skin] .nn-calc-card .field select:focus {
+  border-color: var(--skin-a);
+  box-shadow: var(--focus-ring), inset 0 2px 4px rgba(var(--ink-rgb), 0.05);
+}
+/* label ticks — the FAQ chip language, moved to the form */
+html[data-skin] .nn-calc-card .field label { position: relative; padding-left: 13px; }
+html[data-skin] .nn-calc-card .field label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--skin-b);
+}
+/* segmented controls get a track + a raised key (both fleet patterns) */
+html[data-skin] .segmented {
+  background: color-mix(in srgb, var(--skin-a) 8%, var(--surface));
+  box-shadow: inset 0 2px 5px rgba(var(--ink-rgb), 0.12);
+}
+html[data-skin] .seg-btn.is-on {
+  box-shadow: 0 2px 7px rgba(var(--ink-rgb), 0.22), inset 0 1px 0 #ffffff;
+  transform: translateY(-1px);
+}
+html[data-skin] .nn-seg {
+  display: inline-flex;
+  gap: 2px;
+  padding: 4px;
+  background: color-mix(in srgb, var(--skin-a) 8%, var(--surface));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 2px 5px rgba(var(--ink-rgb), 0.12);
+}
+html[data-skin] .nn-seg button {
+  border: 0;
+  background: transparent;
+  padding: 9px 14px;
+  min-height: 44px;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  cursor: pointer;
+}
+html[data-skin] .nn-seg button.active {
+  background: var(--surface);
+  color: var(--teal-darker);
+  font-weight: 700;
+  box-shadow: 0 2px 7px rgba(var(--ink-rgb), 0.22), inset 0 1px 0 #ffffff;
+  transform: translateY(-1px);
+}
+/* estimator mode plates */
+html[data-skin] .shape-panel {
+  margin-bottom: 18px;
+  padding: 16px 16px 2px;
+  background: var(--surface-warm);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: inset 0 1px 3px rgba(var(--ink-rgb), 0.05);
+}
+/* the Calculate key — full-width actuator */
+html[data-skin] .nn-calc-card > .btn {
+  width: 100%;
+  padding: 17px 24px;
+  border-radius: 16px;
+  font-size: 1.03rem;
+  letter-spacing: 0.01em;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--teal) 86%, #ffffff), var(--teal) 46%, var(--teal-dark));
+  box-shadow: 0 14px 28px -12px rgba(var(--ink-rgb), 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -3px 0 rgba(0, 0, 0, 0.18);
+}
+html[data-skin] .nn-calc-card > .btn:hover {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--teal) 80%, #ffffff), var(--teal) 40%, var(--teal-dark));
+  transform: translateY(-1px);
+}
+html[data-skin] .nn-calc-card > .btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 5px 12px -8px rgba(var(--ink-rgb), 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+}
+/* action bar quiets down — the answer is the loud part */
+html[data-skin] .nn-actions {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-strong);
+}
+html[data-skin] .nn-btn { background: transparent; box-shadow: none; }
+/* options drawer */
+html[data-skin] details.nn-disc {
+  background: var(--surface-warm);
+  box-shadow: inset 0 1px 3px rgba(var(--ink-rgb), 0.05);
+}
+html[data-skin] details.nn-disc > summary::after {
+  content: "+";
+  margin-left: auto;
+  font-weight: 800;
+  color: var(--skin-a);
+}
+html[data-skin] details.nn-disc[open] > summary::after { content: "–"; }
+
+/* ---------- 5. the result moment: raised slab + stamp ---------- */
+html[data-skin] .nn-calc-card .results {
+  position: relative;
+  isolation: isolate;
+  flex-direction: column;
+  margin: 28px -28px -28px;
+  padding: 32px 28px 30px;
+  border: none;
+  border-top: 1px solid color-mix(in srgb, var(--skin-b) 45%, transparent);
+  border-radius: 0 0 24px 24px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.13), inset 0 20px 32px -22px rgba(0, 0, 0, 0.5);
+}
+html[data-skin] .nn-calc-card .results.show { display: flex; }
+/* one anatomy on every tool: label, number, verdict, table, signature */
+html[data-skin] .results > * { order: 3; }
+html[data-skin] .results > :first-child { order: 0; }
+html[data-skin] .results > .big { order: 1; }
+html[data-skin] .results > #verdict, html[data-skin] .results > .verdict { order: 2; }
+html[data-skin] .results > table { order: 3; width: 100%; }
+html[data-skin] .results > .nn-signature { order: 4; }
+/* perforation between the form and the slab */
+html[data-skin] .nn-calc-card .results::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 14px;
+  right: 14px;
+  top: 8px;
+  height: 2px;
+  background-image: linear-gradient(90deg, color-mix(in srgb, var(--skin-b) 70%, transparent) 55%, transparent 45%);
+  background-size: 14px 2px;
+  background-repeat: repeat-x;
+  opacity: 0.55;
+}
+/* slab texture per family (non-semantic chrome only) */
+html[data-skin] .nn-calc-card .results::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+html[data-skin="money"] .nn-calc-card .results::after {
+  background-image: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 28px);
+}
+html[data-skin="home"] .nn-calc-card .results::after {
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 12px);
+}
+html[data-skin="health"] .nn-calc-card .results::after {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1.2px, transparent 1.4px);
+  background-size: 15px 15px;
+}
+html[data-skin] .results .big {
+  font-size: clamp(3rem, 7vw, 3.9rem);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.18), 0 0 34px color-mix(in srgb, var(--skin-b) 35%, transparent);
+}
+/* the verdict becomes a physical tag on the slab */
+html[data-skin] .results #verdict,
+html[data-skin] .results .verdict {
+  align-self: flex-start;
+  margin: 10px 0 4px;
+  padding: 7px 13px;
+  border: 1.5px solid var(--skin-b);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--skin-b) 18%, transparent);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: rotate(-1.3deg);
+}
+html[data-skin] .results #verdict:empty,
+html[data-skin] .results .verdict:empty { display: none; }
+
+/* ---------- 6. signature chrome takes the skin (semantic colors stay) ---------- */
+html[data-skin] .sig-diagram rect, html[data-skin] .sig-diagram polygon, html[data-skin] .sig-diagram path {
+  fill: var(--skin-a); stroke: var(--skin-a);
+}
+html[data-skin] .sig-diagram line { stroke: var(--skin-a); }
+html[data-skin] .nn-signature {
+  padding: 14px 16px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+}
+/* latent-bug fix the build must carry: P4 primitives reference these and
+   no tree defines them */
+:root { --accent-soft: var(--teal-light); --accent-ink: var(--teal-darker); }
+
+/* ---------- 7. motion (transform/opacity only, reduced-motion safe) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-skin] .nn-calc-card { animation: nnUiIn 0.5s var(--ease-out) both; }
+  html[data-skin] .results.show #verdict,
+  html[data-skin] .results.show .verdict { animation: nnStampIn 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.2) both; }
+}
+@keyframes nnUiIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes nnStampIn {
+  from { opacity: 0; transform: rotate(2.5deg) scale(1.25); }
+  to { opacity: 1; transform: rotate(-1.3deg) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-skin] .nn-calc-card,
+  html[data-skin] .results.show #verdict,
+  html[data-skin] .results.show .verdict { animation: none !important; }
+}
+
+/* ---------- 8. print: the depth layer fully exits ---------- */
+@media print {
+  html[data-skin] body { background: #fff; }
+  html[data-skin] .nn-calc-card { box-shadow: none; background: #fff; border-color: #ddd; }
+  html[data-skin] .nn-calc-card::after { display: none; }
+  html[data-skin] .nn-calc-card .results { margin: 0; border-radius: 0; box-shadow: none; }
+  html[data-skin] .nn-calc-card .results::before,
+  html[data-skin] .nn-calc-card .results::after { display: none; }
+  html[data-skin] .results #verdict, html[data-skin] .results .verdict {
+    transform: none; border-color: #000; background: #fff; box-shadow: none;
+  }
+}
+
+/* ---------- 9. phone geometry: the base shell drops card padding to
+   20px at <=480px, so the slab bleed follows it ---------- */
+@media (max-width: 480px) {
+  html[data-skin] .nn-calc-card .results {
+    margin: 24px -20px -20px;
+    padding: 28px 20px 24px;
+  }
+}
+
+/* ---------- 10. catalog cohesion (/calculators.html) ----------
+   Keyed by the section ids already in the markup; the grid is the
+   section head's following sibling. Not exercised by the three tool-page
+   mocks — verified on the pilot. Family colors per tree tokens. */
+.section-head.lib-sec { padding-left: 14px; border-left: 4px solid var(--teal); }
+#cat-home-diy-tools { border-left-color: var(--amber); }
+#cat-freelancer-tools { border-left-color: var(--gold); }
+#cat-debt-money-tools + .tool-grid .tool-card .icon,
+#cat-real-estate-investor-tools + .tool-grid .tool-card .icon,
+#cat-small-business-tools + .tool-grid .tool-card .icon {
+  background: color-mix(in srgb, var(--teal) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--teal) 32%, transparent);
+}
+#cat-home-diy-tools + .tool-grid .tool-card .icon {
+  background: color-mix(in srgb, var(--amber) 14%, var(--surface));
+  border-color: color-mix(in srgb, var(--amber) 35%, transparent);
+}
+#cat-freelancer-tools + .tool-grid .tool-card .icon {
+  background: color-mix(in srgb, var(--gold) 18%, var(--surface));
+  border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+}
+#cat-debt-money-tools + .tool-grid .tool-card:hover,
+#cat-real-estate-investor-tools + .tool-grid .tool-card:hover,
+#cat-small-business-tools + .tool-grid .tool-card:hover { border-color: var(--teal); }
+#cat-home-diy-tools + .tool-grid .tool-card:hover { border-color: var(--amber); }
