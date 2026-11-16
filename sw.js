@@ -1,6 +1,6 @@
 /* Monster Calculator service worker — app-shell cache, network-first for pages.
    Calculators keep working offline once visited; ads and APIs are never intercepted. */
-const CACHE = 'monstercalculator-v17';
+const CACHE = 'monstercalculator-v18';
 const SHELL = [
   '/',
   '/index.html',
