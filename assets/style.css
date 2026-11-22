@@ -2156,3 +2156,55 @@ html.nn-embed .nn-calc-card .results{margin-top:9px;padding:10px 12px}
 .nn-use-cta{text-align:center;padding:clamp(16px,3vw,26px)}
 .nn-use-cta h2{margin-top:0}
 .nn-use-cta .btn{display:inline-block;font-size:1.05rem;padding:13px 26px}
+
+/* ============================================================
+   NN-DESIGN (2026-11-21): modern, techy, easy.
+   Design brief (Mundeep): easy to use, easy to read, easy to
+   understand — with a modern tech look. Clean surfaces, crisp
+   type, one obvious primary action per calculator, results
+   that read at a glance. No decoration that costs clarity.
+   ============================================================ */
+/* Crisp, modern type */
+body{letter-spacing:-0.011em}
+h1,h2,h3{letter-spacing:-0.022em}
+.nn-calc-card .results .big,.results .big{font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
+/* Guide prose: a comfortable reading measure and rhythm */
+main .card p,main .card li{line-height:1.62}
+main .card h2{margin-bottom:.45em}
+/* Modern surfaces */
+.card{border-radius:16px;border:1px solid var(--border);box-shadow:0 1px 2px rgba(16,24,20,.05),0 10px 30px -18px rgba(16,24,20,.25)}
+.nn-calc-card{border-radius:18px}
+/* Inputs: rounded, quiet border, clear focus glow */
+.nn-calc-card .field input,.nn-calc-card .field select,.nn-calc-card .field textarea{border-radius:10px;border:1px solid var(--border-strong,var(--border));background:var(--surface);transition:border-color .15s ease,box-shadow .15s ease}
+.nn-calc-card .field input:focus,.nn-calc-card .field select:focus,.nn-calc-card .field textarea:focus{outline:none;border-color:var(--teal,#0e7a5f);box-shadow:0 0 0 3px rgba(14,122,95,.22)}
+/* One obvious primary action: full-width gradient button, thumb-sized */
+.nn-calc-card>.btn{display:block;width:100%;min-height:48px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--teal,#0e7a5f),var(--teal-dark,#0a5c48));color:#fff;font-weight:700;font-size:1.02rem;box-shadow:0 8px 20px -8px rgba(10,92,72,.55);cursor:pointer}
+.nn-calc-card>.btn:active{transform:translateY(1px)}
+/* Secondary actions: quiet pills, still easy to tap */
+.nn-calc-card .nn-actions .nn-btn{min-height:40px;border-radius:999px;padding:8px 13px}
+/* Segmented controls as modern pills */
+.nn-seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--surface-warm,var(--surface));border:1px solid var(--border)}
+.nn-seg button{border-radius:999px;min-height:38px;padding:7px 14px}
+/* Result panel: dark techy readout, hairline rows, accent number */
+.nn-calc-card .results{border-radius:14px}
+.nn-calc-card .results .row,.nn-calc-card .results table tr{border-color:rgba(127,127,127,.18)}
+/* The guide-page call to action: one clear gradient button */
+.nn-use-cta{border-radius:18px;background:linear-gradient(160deg,var(--surface),var(--surface-warm,var(--surface)))}
+.nn-use-cta .btn{display:inline-block;min-height:50px;line-height:1.25;padding:14px 30px;border-radius:12px;background:linear-gradient(135deg,var(--teal,#0e7a5f),var(--teal-dark,#0a5c48));color:#fff;font-weight:700;box-shadow:0 10px 24px -10px rgba(10,92,72,.55);text-decoration:none}
+/* Hero module: sleeker frame edge */
+#hcFrame{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.hero-calc{border-radius:20px}
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce){.nn-calc-card>.btn:active{transform:none}}
+
+/* Under-hero featured calculator + ad band */
+.nn-under-hero{margin:8px 0 4px}
+.nn-uh-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+@media (max-width:920px){.nn-uh-grid{grid-template-columns:1fr}}
+.nn-uh-calc h2{margin-top:0}
+.nn-uh-sub{color:var(--muted)}
+#uhFrame{height:560px;border-radius:14px}
+.nn-uh-foot{margin-bottom:0}
+@media (min-width:921px){.nn-uh-ad .nn-ad{position:sticky;top:84px}}
+/* Clean hero: no floating glyph decorations — headline, search, calculator */
+.hero-glyphs{display:none!important}
