@@ -520,6 +520,14 @@
   window.nnHeroLoadTool=loadTool;
   /* Deep link from guide pages: ?use=tools/<slug>.html opens that calculator here */
   (function(){ var m=/[?&]use=(tools\/[a-z0-9\-]+\.html)/.exec(window.location.search); if(!m) return; var a=document.querySelector('a[href="'+m[1]+'"]'); loadTool(m[1], a?a.textContent.trim():undefined); })();
+  /* NN-EMBED-FIT: size the hero frame to the embedded calculator's height */
+  window.addEventListener('message', function(e){
+    if (e.origin !== window.location.origin) return;
+    var h = e.data && e.data.nnEmbedHeight;
+    if (!h || view !== 'tool') return;
+    var max = Math.floor(window.innerHeight * 0.94);
+    frame.style.height = Math.max(300, Math.min(Math.ceil(h), max)) + 'px';
+  });
   document.addEventListener('click',function(e){
     if(e.ctrlKey||e.metaKey||e.shiftKey||e.button!==0) return;
     var t=e.target; if(!t||!t.closest) return;

@@ -1129,3 +1129,20 @@
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
   else { init(); }
 })();
+
+/* NN-EMBED-FIT (2026-11-21): in embed mode, report the content height to the
+   parent page so the hero frame sizes itself to the calculator — the widget
+   fits fully with no internal scrolling. */
+(function(){ try {
+  if (!document.documentElement.classList.contains('nn-embed')) return;
+  if (window.parent === window) return;
+  var last = 0;
+  function post() {
+    var h = Math.ceil(document.documentElement.scrollHeight);
+    if (h && h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
+  }
+  if (window.ResizeObserver) { try { new ResizeObserver(post).observe(document.body); } catch (e) {} }
+  window.addEventListener('load', post);
+  window.addEventListener('resize', post);
+  setInterval(post, 700);
+} catch (e) {} })();
