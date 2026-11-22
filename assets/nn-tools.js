@@ -1130,35 +1130,31 @@
   else { init(); }
 })();
 
-/* NN-EMBED-FIT DEBUG (temporary, 2026-11-21): visible readout of the widget's
-   own measurements so the oversized element can be identified. */
+/* NN-EMBED-FIT DEBUG2 (temporary, 2026-11-21) */
 (function(){ try {
   if (!document.documentElement.classList.contains('nn-embed')) return;
   var dbg = document.createElement('div');
   dbg.style.cssText = 'position:fixed;top:0;left:0;z-index:99999;background:#000;color:#0f0;font:11px/1.5 monospace;padding:8px;pointer-events:none;max-width:96vw;white-space:pre-wrap';
   document.body.appendChild(dbg);
-  function kids(el, label) {
-    var out = [];
-    if (!el) return label + ': none';
-    for (var i = 0; i < el.children.length; i++) {
-      var c = el.children[i];
-      out.push(c.tagName + '.' + (c.className && c.className.baseVal !== undefined ? '' : String(c.className).split(' ')[0]) + ' top=' + c.offsetTop + ' h=' + c.offsetHeight);
-    }
-    return label + ': ' + out.join(' | ');
-  }
   function show() {
+    var main = document.querySelector('main');
     var card = document.querySelector('.nn-calc-card');
-    var cb = card ? Math.round(card.getBoundingClientRect().bottom + (window.scrollY || 0)) : -1;
-    var cs = getComputedStyle(document.body);
-    var ms = document.querySelector('main') ? getComputedStyle(document.querySelector('main')) : null;
-    dbg.textContent = 'deSH=' + document.documentElement.scrollHeight +
-      ' bodySH=' + document.body.scrollHeight +
-      ' innerH=' + window.innerHeight +
-      ' cardBottom=' + cb +
-      ' bodyMinH=' + cs.minHeight + ' bodyH=' + cs.height +
-      (ms ? ' mainMinH=' + ms.minHeight + ' mainH=' + ms.height + ' mainDisp=' + ms.display : '') +
-      '\n' + kids(document.body, 'BODY') +
-      '\n' + kids(document.querySelector('main'), 'MAIN');
+    var ms = getComputedStyle(main), cs = getComputedStyle(card);
+    var sy = window.scrollY || 0;
+    var rows = [];
+    var all = main.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (!el.offsetHeight) continue;
+      var b = Math.round(el.getBoundingClientRect().bottom + sy);
+      rows.push({ b: b, t: el.tagName + '.' + String(el.className).split(' ')[0] });
+    }
+    rows.sort(function(a, z){ return z.b - a.b; });
+    var top = rows.slice(0, 8).map(function(r){ return r.t + '@' + r.b; }).join(' | ');
+    dbg.textContent = 'mainPadT=' + ms.paddingTop + ' mainPadB=' + ms.paddingBottom +
+      ' mainMargB=' + ms.marginBottom + ' cardMargT=' + cs.marginTop + ' cardMargB=' + cs.marginBottom +
+      ' mainBottom=' + Math.round(main.getBoundingClientRect().bottom + sy) +
+      '\nDEEPEST: ' + top;
   }
   window.addEventListener('load', show);
   setInterval(show, 1000);
