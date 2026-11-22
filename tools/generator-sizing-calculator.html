@@ -113,6 +113,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8058544460943611" crossorigin="anonymous"></script>
 
 <!-- NN-EMBED --><script>if(/[?&]embed=1(&|$)/.test(window.location.search))document.documentElement.classList.add("nn-embed");</script>
+<script>if(/[?&]embed=1(&|$)/.test(window.location.search))window.location.replace("../widgets/generator-sizing-calculator.html?embed=1");</script>
 
 </head>
 <body>
@@ -127,51 +128,15 @@
   <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../calculators.html#cat-home-diy-tools">Home & DIY tools</a> › Generator Sizing Calculator</div>
 <div class="nn-ad nn-ad-top" data-k728="277b0aaf6be197cbf43956912cdc9bd8" data-k320="c1dac9918d6bd3576a22e928e0aa2cff"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
   <h1 class="tool-title">Generator Sizing Calculator</h1>
+   <div class="card nn-use-cta">
+     <h2>\1</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/generator-sizing-calculator.html">\1 &rarr;</a></p>
+   </div>
+   
   <p class="lede">Generators are sized by the hardest second, not the average hour. Tick what has to run in an outage and get running watts, the true starting surge (largest motor, not everything at once), a recommended size with headroom, and the shelf class it lands in.</p>
 
-  <div class="card nn-calc-card">
-
-    <div class="row">
-      <div class="field"><label>Appliances to keep running (running W / starting W)</label>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;font-size:.93rem">
-        <label><input type="checkbox" id="g_fridge" checked> Refrigerator (150 / 1,200)</label>
-        <label><input type="checkbox" id="g_furnace" checked> Furnace fan / boiler (800 / 1,200)</label>
-        <label><input type="checkbox" id="g_lights" checked> LED lights ×10 (100 / 100)</label>
-        <label><input type="checkbox" id="g_sump" checked> Sump pump (800 / 1,300)</label>
-        <label><input type="checkbox" id="g_tv" checked> TV + router (150 / 150)</label>
-        <label><input type="checkbox" id="g_micro" checked> Microwave (1,200 / 1,200)</label>
-        <label><input type="checkbox" id="g_freezer"> Chest freezer (100 / 800)</label>
-        <label><input type="checkbox" id="g_acw"> Window AC (1,200 / 1,800)</label>
-        <label><input type="checkbox" id="g_acc"> Central AC, 3-ton (3,500 / 10,500)</label>
-        <label><input type="checkbox" id="g_well"> Well pump ½ hp (1,000 / 2,100)</label>
-        <label><input type="checkbox" id="g_washer"> Washer (500 / 1,100)</label>
-        <label><input type="checkbox" id="g_cpap"> CPAP (60 / 60)</label>
-        <label><input type="checkbox" id="g_heater"> Space heater (1,500 / 1,500)</label>
-        <label><input type="checkbox" id="g_coffee"> Coffee maker (1,200 / 1,200)</label>
-        <label><input type="checkbox" id="g_garage"> Garage door opener (350 / 700)</label>
-        <label><input type="checkbox" id="g_computer"> Computer + monitors (250 / 250)</label>
-      </div></div>
-    </div>
-    <p style="color:var(--muted);font-size:.92rem;margin:4px 0 0">Wattages are labeled planning figures for typical residential appliances — your nameplates win every argument. The surge math assumes only the single largest motor starts at the worst moment (the standard sizing method); electric resistance loads (dryers 5,400 W, electric water heaters 4,500 W, ranges) are deliberately not on the checklist because putting them on a portable generator is rarely the right outage plan. Whole-home standby systems and transfer switches are electrician territory.</p>
-
-    <button class="btn" onclick="calc()">Size my generator</button>
-<div class="nn-actions no-print" data-nn-actions>
-  <button type="button" class="nn-btn" data-nn="share">🔗 Copy link to this result</button>
-  <button type="button" class="nn-btn" data-nn="copy">📋 Copy result</button>
-  <button type="button" class="nn-btn" data-nn="save">💾 Save this calculation</button>
-  <button type="button" class="nn-btn" data-nn="print">🖨️ Print / Save PDF</button>
-</div>
-<div class="nn-saves no-print" id="nnSavesPanel" hidden></div>
-<p class="nn-embed-link no-print"><a href="../embed.html#generator-sizing-calculator">Embed this calculator on your site — free</a></p>
-    <div class="results" id="results">
-      <div style="color:var(--muted);font-size:.9rem">Recommended generator size & class</div>
-      <div id="verdict" style="font-weight:700;font-size:1.02rem;margin:2px 0 6px"></div>
-      <div class="big" id="rMain">—</div>
-      <table><tbody id="rows"></tbody></table>
-    
-<div class="nn-signature no-print" data-nn-signature hidden><div class="nn-sig-title">How the size is built</div><div class="nn-sig-body"></div></div>
-</div>
-  </div>
+  
 <div class="nn-ad" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
 
   <div class="card">
@@ -225,7 +190,12 @@
 </main>
 <div class="nn-ad nn-ad-bottom" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
 
-<section class="related-tools">
+<div class="card nn-use-cta">
+     <h2>Ready to run your numbers?</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/generator-sizing-calculator.html">\1 &rarr;</a></p>
+   </div>
+   <section class="related-tools">
   <h2>Related tools</h2>
   <ul>
     <li><a href="electrical-load-calculator.html">Electrical Load Calculator</a></li>
@@ -236,59 +206,7 @@
   </ul>
 </section>
 <footer class="site-footer"><div class="wrap"><div>© 2026 Monster Calculator</div><div><a href="../terms.html">Terms</a> · <a href="../privacy.html">Privacy</a> · <a href="../index.html">All tools</a> · <a href="../calculators.html">Calculators</a> · <a href="../embed.html">Embed</a> · <a href="../partnerships.html">Partnerships</a> · <a href="../creator-roi-calculators.html">Creator ROI</a></div></div></footer>
-<script>
 
-function v(id){return +document.getElementById(id).value||0;}
-function sv(id){return document.getElementById(id).value;}
-function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
-function fmt0(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});}
-function fmt1(n){return n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});}
-function row(l,val){return '<tr><td>'+l+'</td><td>'+val+'</td></tr>';}
-function money(n){return '$'+fmt(n);}
-function money0(n){return '$'+fmt0(Math.round(n));}
-function ceilg(x){return Math.ceil(x-1e-9);}
-
-/*PURE-BEGIN*/
-var GEN_ITEMS={fridge:[150,1200],freezer:[100,800],furnace_fan:[800,1200],ac_window:[1200,1800],ac_central_3t:[3500,10500],well_pump_half:[1000,2100],sump_pump:[800,1300],microwave:[1200,1200],washer:[500,1100],lights_led_x10:[100,100],tv:[150,150],cpap:[60,60],garage_door:[350,700],coffee_maker:[1200,1200],space_heater:[1500,1500],computer:[250,250]};
-var GEN_CLASS=[2000,3500,5500,7500,9500,12000,14000,17500,22000,26000];
-function genCalc(items,headroom){
-  var run=0,surge=0,i;
-  for(i=0;i<items.length;i++){run+=GEN_ITEMS[items[i]][0]; var gap=GEN_ITEMS[items[i]][1]-GEN_ITEMS[items[i]][0]; if(gap>surge)surge=gap;}
-  var start=run+surge, rec=start*(headroom||1.25), cls=26000,j;
-  for(j=0;j<GEN_CLASS.length;j++){if(rec<=GEN_CLASS[j]){cls=GEN_CLASS[j];break;}}
-  return {run:run,surge:surge,start:start,rec:rec,cls:cls};
-}
-/*PURE-END*/
-/*P4SIG*/
-function sigSlotBody(){var s=document.querySelector('[data-nn-signature]');return s?s.querySelector('.nn-sig-body'):null;}
-function sigSet(title,html){var b=sigSlotBody();if(!b)return;b.innerHTML=(title?'<p class="sig-title">'+title+'</p>':'')+html;}
-function sigMoney(v){return (v<0?'-$':'$')+Math.abs(Math.round(v)).toLocaleString('en-US');}
-var fmt0=(typeof fmt0==='function')?fmt0:function(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});};
-var fmt1=(typeof fmt1==='function')?fmt1:function(n){return n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});};
-var money=(typeof money==='function')?money:function(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
-var money0=(typeof money0==='function')?money0:function(n){return '$'+Math.round(n).toLocaleString('en-US');};
-
-function sigLadderHTML(steps,note){var h='<div class="sig-ladder">';for(var i=0;i<steps.length;i++){var s=steps[i];h+='<div class="sig-lstep"><span class="sig-lstep-main"><span class="sig-dot s-'+(i%4===0?'a':i%4===1?'b':i%4===2?'c':'d')+'"></span>'+s[0]+'</span><strong>'+s[1]+'</strong></div>';if(s[2]){h+='<div class="sig-lstep-sub">'+s[2]+'</div>';}}h+='</div>';if(note){h+='<p class="sig-note">'+note+'</p>';}return h;}
-
-function calc(){
-  var keys=['fridge','freezer','furnace_fan','ac_window','ac_central_3t','well_pump_half','sump_pump','microwave','washer','lights_led_x10','tv','cpap','garage_door','coffee_maker','space_heater','computer'], items=[],i;
-  var idmap={fridge:'g_fridge',freezer:'g_freezer',furnace_fan:'g_furnace',ac_window:'g_acw',ac_central_3t:'g_acc',well_pump_half:'g_well',sump_pump:'g_sump',microwave:'g_micro',washer:'g_washer',lights_led_x10:'g_lights',tv:'g_tv',cpap:'g_cpap',garage_door:'g_garage',coffee_maker:'g_coffee',space_heater:'g_heater',computer:'g_computer'};
-  for(i=0;i<keys.length;i++){if(document.getElementById(idmap[keys[i]]).checked)items.push(keys[i]);}
-  var r=genCalc(items,1.25);
-  var res=document.getElementById('results');
-  if(!(r.run>0)){document.getElementById('rMain').textContent='—';document.getElementById('verdict').textContent='Tick at least one appliance to size the generator.';document.getElementById('rows').innerHTML='';res.classList.add('show');return;}
-  document.getElementById('rMain').textContent='Buy the '+fmt0(r.cls)+' W class';
-  document.getElementById('verdict').textContent='Running load '+fmt0(r.run)+' W; worst-second starting requirement '+fmt0(r.start)+' W; with 25% headroom, ≈'+fmt0(r.rec)+' W — the '+fmt0(r.cls)+' W class covers it without living at redline.';
-  document.getElementById('rows').innerHTML=row('Running watts',fmt0(r.run)+' W')+row('Largest motor surge (added once)',fmt0(r.surge)+' W')+row('Starting requirement',fmt0(r.start)+' W')+row('Recommended (×1.25 headroom)',fmt0(r.rec)+' W')+row('Generator class',fmt0(r.cls)+' W');
-  sigSet(null, sigSet(null,sigLadderHTML([['Running watts',fmt0(r.run)+' W'],['+ largest motor surge (counted once)',fmt0(r.surge)+' W'],['Starting requirement',fmt0(r.start)+' W'],['× 1.25 headroom',fmt0(r.rec)+' W'],['Generator class to buy',fmt0(r.cls)+' W']],'Motors surge only at start-up, so the biggest surge is added once — not once per motor.')));
-  res.classList.add('show');
-}
-
-function live(){document.querySelectorAll('input,select,textarea').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc);});}
-
-live(); calc();
-
-</script>
 
 <script src="../assets/ads.js"></script>
 <script src="../assets/track.js"></script>

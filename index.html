@@ -118,8 +118,8 @@
       <p class="hc-note">Quick math, right here &mdash; or search and the calculator you pick opens in this module. The full shelf is just below &darr;</p>
       </div>
       <div class="hc-view" id="hcTool" hidden>
-        <iframe id="hcFrame" title="Calculator" loading="lazy" style="border:0;width:100%;height:640px;border-radius:12px;background:#fff"></iframe>
-        <p class="hc-tool-foot"><a id="hcOpenFull" href="calculators.html">Open the full calculator page &rarr;</a></p>
+        <iframe id="hcFrame" title="Calculator" loading="lazy" style="border:0;width:100%;border-radius:12px;background:#fff"></iframe>
+        <p class="hc-tool-foot"><a id="hcOpenFull" href="calculators.html">Open the full guide &rarr;</a></p>
       </div>
       <div class="hc-view" id="hcHistory" hidden>
         <ul class="hc-history-list" id="hcHistoryList"></ul>
@@ -129,6 +129,21 @@
   </div>
 
   <svg class="nest-motif" viewBox="0 0 200 200" fill="none" aria-hidden="true" focusable="false"><path d="M6 148 A 118 118 0 0 1 194 148" stroke="#a78bfa" stroke-opacity="0.30" stroke-width="2" stroke-linecap="round"/><path d="M26 160 A 96 96 0 0 1 174 160" stroke="#ffffff" stroke-opacity="0.16" stroke-width="2" stroke-linecap="round"/><path d="M48 171 A 74 74 0 0 1 152 171" stroke="#a78bfa" stroke-opacity="0.22" stroke-width="2" stroke-linecap="round"/><path d="M71 180 A 52 52 0 0 1 129 180" stroke="#ffffff" stroke-opacity="0.12" stroke-width="2" stroke-linecap="round"/></svg>
+</section>
+<section class="nn-under-hero">
+  <div class="wrap">
+    <div class="nn-uh-grid">
+      <div class="nn-uh-calc card">
+        <h2>Featured calculator: BMI</h2>
+        <p class="nn-uh-sub">The full BMI calculator, working right here — the frame sizes itself, so nothing hides behind a scrollbar.</p>
+        <iframe id="uhFrame" title="BMI Calculator" loading="lazy" src="widgets/bmi-calculator.html?embed=1" style="border:0;width:100%;border-radius:12px;background:#fff"></iframe>
+        <p class="nn-uh-foot"><a href="tools/bmi-calculator.html">Read the BMI guide &rarr;</a></p>
+      </div>
+      <div class="nn-uh-ad">
+        <div class="nn-ad " data-k300="5fe034b641bcda0b76cb353038db13d9" data-k320="c1dac9918d6bd3576a22e928e0aa2cff"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever &rarr;</span></a></div>
+      </div>
+    </div>
+  </div>
 </section>
 <nav class="lib-subnav" aria-label="Calculator categories">
   <div class="wrap">
@@ -504,11 +519,14 @@
     });
   }
   /* ---------- loading a calculator into the module ---------- */
+  var NN_WIDGETS={'bmi-calculator':1,'break-even-calculator':1,'buy-vs-lease-car-calculator':1,'cap-rate-calculator':1,'car-total-cost-of-ownership-calculator':1,'cash-on-cash-calculator':1,'ev-vs-gas-calculator':1,'freelance-rate-calculator':1,'generator-sizing-calculator':1,'invoice-generator':1,'llm-api-cost-estimator':1,'mileage-deduction-calculator':1,'payment-fee-calculator':1,'quarterly-tax-calculator':1,'rental-property-analyzer':1,'repair-vs-replace-calculator':1,'roi-calculator':1,'sponsorship-rate-calculator':1,'tiktok-earnings-calculator':1,'water-heater-sizing-calculator':1,'youtube-earnings-calculator':1};
   function loadTool(href, name){
     if(!href || href.indexOf('tools/')!==0) return false;
+    if(!name||name==='Calculator'){var ca=document.querySelector('a[href="'+href+'"]'); if(ca) name=ca.textContent.trim();}
     currentTool={href:href, name:name||'Calculator'};
     titleEl.textContent=currentTool.name;
-    frame.src=href+(href.indexOf('?')>-1?'&':'?')+'embed=1';
+    var slug=href.replace('tools/','').replace('.html','');
+    frame.src=(NN_WIDGETS[slug]?'widgets/'+slug+'.html':href)+'?embed=1';
     openFull.href=href;
     showView('tool');
     pushHistory({t:'tool', text:currentTool.name, href:href});
@@ -516,6 +534,18 @@
     return true;
   }
   window.nnHeroLoadTool=loadTool;
+  /* Deep link from guide pages: ?use=tools/<slug>.html opens that calculator here */
+  (function(){ var m=/[?&]use=(tools\/[a-z0-9\-]+\.html)/.exec(window.location.search); if(!m) return; var a=document.querySelector('a[href="'+m[1]+'"]'); loadTool(m[1], a?a.textContent.trim():undefined); })();
+  /* NN-EMBED-FIT: size the hero frame to the embedded calculator's height */
+  window.addEventListener('message', function(e){
+    if (e.origin !== window.location.origin) return;
+    var h = e.data && e.data.nnEmbedHeight;
+    if (!h) return;
+    var target = null;
+    if (e.source === frame.contentWindow) { if (view !== 'tool') return; target = frame; }
+    else { var uh = document.getElementById('uhFrame'); if (uh && e.source === uh.contentWindow) target = uh; }
+    if (target) target.style.height = Math.max(300, Math.min(Math.ceil(h) + 10, 4000)) + 'px';
+  });
   document.addEventListener('click',function(e){
     if(e.ctrlKey||e.metaKey||e.shiftKey||e.button!==0) return;
     var t=e.target; if(!t||!t.closest) return;

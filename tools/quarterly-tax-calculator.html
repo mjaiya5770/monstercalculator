@@ -48,6 +48,7 @@
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8058544460943611" crossorigin="anonymous"></script>
 <!-- NN-EMBED --><script>if(/[?&]embed=1(&|$)/.test(window.location.search))document.documentElement.classList.add("nn-embed");</script>
+<script>if(/[?&]embed=1(&|$)/.test(window.location.search))window.location.replace("../widgets/quarterly-tax-calculator.html?embed=1");</script>
 </head>
 <body>
 <header class="site-header">
@@ -61,36 +62,15 @@
   <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../calculators.html#cat-small-business-tools">Small business tools</a> › Quarterly Estimated Tax Calculator</div>
 <div class="nn-ad nn-ad-top" data-k728="277b0aaf6be197cbf43956912cdc9bd8" data-k320="c1dac9918d6bd3576a22e928e0aa2cff"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
   <h1 class="tool-title">Quarterly Estimated Tax Calculator</h1>
+   <div class="card nn-use-cta">
+     <h2>\1</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/quarterly-tax-calculator.html">\1 &rarr;</a></p>
+   </div>
+   
   <p class="lede">Self-employed? The IRS wants its cut four times a year. Enter your expected annual profit and tax bracket to estimate each quarterly payment — covering both self-employment tax and federal income tax.</p>
 
-  <div class="card nn-calc-card">
-    <div class="row">
-      <div class="field"><label for="profit">Expected annual net self-employment profit ($)</label><input id="profit" type="number" value="100000" min="0"><div class="hint">Revenue minus business expenses for the year.</div></div>
-      <div class="field"><label for="bracket">Marginal federal income tax rate (%)</label><input id="bracket" type="number" value="22" min="0" max="50" step="0.5"><div class="hint">Pick your tax bracket — e.g. 22% for most mid-income filers.</div></div>
-    </div>
-    <button class="btn" onclick="calc()">Calculate quarterly payment</button>
-    <div class="nn-actions no-print" data-nn-actions>
-  <button type="button" class="nn-btn" data-nn="share">🔗 Copy link to this result</button>
-  <button type="button" class="nn-btn" data-nn="copy">📋 Copy result</button>
-  <button type="button" class="nn-btn" data-nn="save">💾 Save this calculation</button>
-  <button type="button" class="nn-btn" data-nn="print">🖨️ Print / Save PDF</button>
-</div>
-<div class="nn-saves no-print" id="nnSavesPanel" hidden></div>
-<p class="nn-embed-link no-print"><a href="../embed.html#quarterly-tax-calculator">Embed this calculator on your site — free</a></p>
-<div class="results" id="results">
-      <div style="color:var(--muted);font-size:.9rem">Estimated quarterly payment</div>
-      <div class="big" id="rQ">$0</div>
-      <p class="verdict" id="verdict"></p>
-<table>
-        <tr><td>Self-employment taxable earnings (92.35%)</td><td id="rSEBase">$0</td></tr>
-        <tr><td>Self-employment tax (15.3%)</td><td id="rSE">$0</td></tr>
-        <tr><td>Federal income tax</td><td id="rInc">$0</td></tr>
-        <tr><td>Total annual tax</td><td id="rTot">$0</td></tr>
-      </table>
-    
-<div class="nn-signature no-print" data-nn-signature hidden><div class="nn-sig-title">Your payment year</div><div class="nn-sig-body"></div></div>
-</div>
-  </div>
+  
 <div class="nn-ad" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
 
   <div class="card">
@@ -143,7 +123,12 @@
   
 </main>
 <div class="nn-ad nn-ad-bottom" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
-<section class="related-tools">
+<div class="card nn-use-cta">
+     <h2>Ready to run your numbers?</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/quarterly-tax-calculator.html">\1 &rarr;</a></p>
+   </div>
+   <section class="related-tools">
   <h2>Related tools</h2>
   <ul>
     <li><a href="freelance-rate-calculator.html">Freelance Hourly Rate Calculator</a></li>
@@ -153,51 +138,9 @@
   </ul>
 </section>
 <footer class="site-footer"><div class="wrap"><div>© 2026 Monster Calculator</div><div><a href="../terms.html">Terms</a> · <a href="../privacy.html">Privacy</a> · <a href="../index.html">All tools</a> · <a href="../calculators.html">Calculators</a> · <a href="../embed.html">Embed</a> · <a href="../partnerships.html">Partnerships</a> · <a href="../creator-roi-calculators.html">Creator ROI</a></div></div></footer>
-<script>
-function fmt(n){return n.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});}
-function calc(){
-  const profit=+document.getElementById('profit').value||0,
-        bracket=(+document.getElementById('bracket').value||0)/100;
-  const seBase=profit*0.9235;
-  const seTax=seBase*0.153;
-  const incTax=profit*bracket;
-  const total=seTax+incTax;
-  document.getElementById('rQ').textContent=fmt(total/4);
-  document.getElementById('rSEBase').textContent=fmt(seBase);
-  document.getElementById('rSE').textContent=fmt(seTax);
-  document.getElementById('rInc').textContent=fmt(incTax);
-  document.getElementById('rTot').textContent=fmt(total);
-  document.getElementById('verdict').textContent='Estimated total '+fmt(total)+' for the year — '+fmt(total/4)+' per quarter. Setting aside about '+fmt(total/12)+' a month keeps each due date painless.';sigSet(null,sigStripHTML(0,365,[[0,105,'Q1'],[105,166,'Q2'],[166,258,'Q3'],[258,365,'Q4']],[[105,'Due Apr 15'],[166,'Due Jun 15'],[258,'Due Sep 15'],[365,'Due Jan 15']],'Standard federal estimated-tax due dates — when one lands on a weekend or holiday it moves to the next business day. Each quarter here is '+fmt(total/4)+'.'));
-  document.getElementById('results').classList.add('show');
-}
-calc();
 
-/*P4SIG*/
-function sigSlotBody(){var s=document.querySelector('[data-nn-signature]');return s?s.querySelector('.nn-sig-body'):null;}
-function sigSet(title,html){var b=sigSlotBody();if(!b)return;b.innerHTML=(title?'<p class="sig-title">'+title+'</p>':'')+html;}
-function sigMoney(v){return (v<0?'-$':'$')+Math.abs(Math.round(v)).toLocaleString('en-US');}
-var fmt0=(typeof fmt0==='function')?fmt0:function(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});};
-var fmt1=(typeof fmt1==='function')?fmt1:function(n){return n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});};
-var money=(typeof money==='function')?money:function(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
-var money0=(typeof money0==='function')?money0:function(n){return '$'+Math.round(n).toLocaleString('en-US');};
-
-function sigStripHTML(min,max,segs,markers,note){
-  if(!(max>min))return '';
-  var span=max-min;
-  function pct(v){ return Math.max(0,Math.min(100,(v-min)/span*100)); }
-  var cells=segs.map(function(s,i){
-    return '<span class="sig-strip-seg s-'+String.fromCharCode(97+(i%5))+'" style="left:'+pct(s[0]).toFixed(2)+'%;width:'+Math.max(0,pct(s[1])-pct(s[0])).toFixed(2)+'%"><span class="sig-strip-lab">'+s[2]+'</span></span>';
-  }).join('');
-  var marks=(markers||[]).map(function(mk){
-    return '<span class="sig-strip-mark" style="left:'+pct(mk[0]).toFixed(2)+'%"><span class="sig-strip-mlab">'+mk[1]+'</span></span>';
-  }).join('');
-  var aria=segs.map(function(s){return s[2];}).join('; ');
-  return '<div class="sig-strip" role="img" aria-label="'+aria+'"><div class="sig-strip-track">'+cells+marks+'</div></div>'+(note?'<div class="sig-note">'+note+'</div>':'');
-}
-/*P4STRIP-END*/</script>
 <script src="../assets/ads.js"></script>
 <script src="../assets/track.js"></script>
 <script src="../assets/nn-tools.js"></script>
-<script>document.querySelectorAll('.nn-calc-card input,.nn-calc-card select,.nn-calc-card textarea').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc);});</script>
 </body>
 </html>

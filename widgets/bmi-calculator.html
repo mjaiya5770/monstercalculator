@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free BMI Calculator — Body Mass Index with Imperial & Metric | Monster Calculator</title>
+<meta name="robots" content="noindex,follow">
+  <meta name="description" content="Free BMI calculator with imperial (ft/in, lbs) and metric (cm, kg) modes. Get your Body Mass Index and health category instantly. No signup.">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../assets/site.webmanifest">
+<meta name="theme-color" content="#65a30d">
+<meta property="og:image" content="https://monstercalculator.org/assets/icon-512.png">
+<meta property="og:site_name" content="Monster Calculator">
+<link rel="canonical" href="https://monstercalculator.org/tools/bmi-calculator.html">
+<meta property="og:title" content="Free BMI Calculator — Body Mass Index with Imperial &amp; Metric | Monster Calculator">
+<meta property="og:description" content="Free BMI calculator with imperial (ft/in, lbs) and metric (cm, kg) modes. Get your Body Mass Index and health category instantly. No signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://monstercalculator.org/tools/bmi-calculator.html">
+<meta property="og:image" content="https://monstercalculator.org/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free BMI Calculator — Body Mass Index with Imperial &amp; Metric | Monster Calculator">
+<meta name="twitter:description" content="Free BMI calculator with imperial (ft/in, lbs) and metric (cm, kg) modes. Get your Body Mass Index and health category instantly. No signup.">
+<meta name="twitter:image" content="https://monstercalculator.org/assets/icon-512.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "BMI Calculator",
+  "description": "Free BMI calculator with imperial (ft/in, lbs) and metric (cm, kg) modes. Get your Body Mass Index and health category instantly. No signup.",
+  "url": "https://monstercalculator.org/tools/bmi-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Monster Calculator",
+    "url": "https://monstercalculator.org/"
+  }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8058544460943611" crossorigin="anonymous"></script>
+<!-- NN-EMBED --><script>if(/[?&]embed=1(&|$)/.test(window.location.search))document.documentElement.classList.add("nn-embed");</script>
+<meta name="robots" content="noindex">
+<script>if(!/[?&]embed=1(&|$)/.test(window.location.search))window.location.replace("../tools/bmi-calculator.html");</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><img class="brand-icon" src="../assets/icon-192.png" alt="Monster Calculator logo" width="28" height="28">Monster <span>Calculator</span></a>
+    <nav><a href="../calculators.html">Calculators</a><a href="../tools/mortgage-calculator.html">Mortgage</a><a href="../tools/percentage-calculator.html">Percentage</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="nn-embed-bar">Calculator via <a href="https://monstercalculator.org/tools/bmi-calculator.html" target="_top" rel="noopener">Monster Calculator</a></div>
+  <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../calculators.html#cat-everyday-tools">Everyday tools</a> › BMI Calculator</div>
+<div class="nn-ad nn-ad-top" data-k728="277b0aaf6be197cbf43956912cdc9bd8" data-k320="c1dac9918d6bd3576a22e928e0aa2cff"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
+  <h1 class="tool-title">BMI Calculator</h1>
+  <p class="lede">Enter your height and weight to get your Body Mass Index and see which category you fall into. Switch between imperial and metric anytime.</p>
+  <div class="nn-answer"><strong>The short answer:</strong> BMI = 703 × weight (lb) ÷ height (in)&sup2;. At 180 lb and 5&prime;10&Prime; that is <strong>25.8</strong> — just into the overweight band (healthy is 18.5–24.9). BMI is a screening number, not a diagnosis; it does not account for muscle or build.</div>
+
+  <div class="card nn-calc-card">
+    <div class="row">
+      <div class="field"><label for="units">Units</label><select id="units" onchange="toggleUnits(true)"><option value="imp">Imperial (ft / in / lbs)</option><option value="met">Metric (cm / kg)</option></select></div>
+      <div class="field"><label>Mode</label><div class="nn-seg no-print" role="tablist" aria-label="BMI mode"><button type="button" id="bmiModeMine" class="active" onclick="setBmiMode('mine')">My BMI</button><button type="button" id="bmiModeTarget" onclick="setBmiMode('target')">Weight for a target BMI</button></div></div>
+    </div>
+    <div class="field" id="bmiTargetField" hidden><label for="targetBmi">Target BMI</label><input id="targetBmi" type="number" value="22" min="10" max="60" step="0.1"></div>
+    <div id="impFields">
+      <div class="row">
+        <div class="field"><label for="ft">Height — feet</label><input id="ft" type="number" value="5" min="0"></div>
+        <div class="field"><label for="inch">Height — inches</label><input id="inch" type="number" value="10" min="0" max="11"></div>
+        <div class="field"><label for="lbs">Weight (lbs)</label><input id="lbs" type="number" value="180" min="0"></div>
+      </div>
+    </div>
+    <div id="metFields" style="display:none">
+      <div class="row">
+        <div class="field"><label for="cm">Height (cm)</label><input id="cm" type="number" value="178" min="0"></div>
+        <div class="field"><label for="kg">Weight (kg)</label><input id="kg" type="number" value="82" min="0"></div>
+      </div>
+    </div>
+    <button class="btn" onclick="calc()">Calculate BMI</button>
+    <div class="nn-actions no-print" data-nn-actions>
+  <button type="button" class="nn-btn" data-nn="share">🔗 Copy link to this result</button>
+  <button type="button" class="nn-btn" data-nn="copy">📋 Copy result</button>
+  <button type="button" class="nn-btn" data-nn="save">💾 Save this calculation</button>
+  <button type="button" class="nn-btn" data-nn="print">🖨️ Print / Save PDF</button>
+</div>
+<div class="nn-saves no-print" id="nnSavesPanel" hidden></div>
+<p class="nn-embed-link no-print"><a href="../embed.html#bmi-calculator">Embed this calculator on your site — free</a></p>
+<div class="results" id="results">
+      <div style="color:var(--muted);font-size:.9rem">Your BMI</div>
+      <div class="big" id="rBmi">0</div>
+      <p class="verdict" id="verdict"></p>
+      <table>
+        <tr><td>Category</td><td id="rCat">—</td></tr>
+        <tr><td>Healthy weight range for your height</td><td id="rRange">—</td></tr>
+        <tr id="bmiTargetRow" hidden><td id="rTargetLab">Weight at your target BMI</td><td id="rTargetWeight">—</td></tr>
+      </table>
+    
+<div class="nn-signature no-print" data-nn-signature hidden><div class="nn-sig-title">Where your BMI sits</div><div class="nn-sig-body"></div></div>
+</div>
+  </div>
+<div class="nn-ad" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
+
+  <div class="card">
+    <h2>How it works</h2>
+    <p style="color:var(--muted)">Imperial: <strong>BMI = 703 × weight (lbs) ÷ height (in)<sup>2</sup></strong>. Metric: <strong>BMI = weight (kg) ÷ height (m)<sup>2</sup></strong>. Categories follow CDC cutoffs: under 18.5 underweight, 18.5–24.9 healthy, 25–29.9 overweight, 30+ obese.</p>
+    <div class="note">BMI is a screening measure, not a diagnosis — it doesn't account for muscle mass, bone density, or body composition. Talk to your doctor for personal health advice.</div>
+  </div>
+
+
+  <div class="card">
+    <h2>Formula &amp; worked example</h2>
+    <p><strong>Formula:</strong> BMI = 703 × weight (lb) ÷ height (in)², or weight (kg) ÷ height (m)². Categories: under 18.5 underweight, 18.5–24.9 healthy, 25–29.9 overweight, 30+ obese.</p>
+    <p><strong>Worked example:</strong> At 180 lb and 5′10″ (70 in): 703 × 180 ÷ 4,900 = 25.8 — just inside the overweight band.</p>
+  </div>
+
+
+  <div class="card">
+    <h2>When to use this</h2>
+    <ul><li>A quick screening number for a health form, sport or insurance questionnaire.</li><li>You are tracking weight change and want the category context, not just the scale.</li><li>You are setting a goal weight and want to know which BMI it corresponds to.</li><li>A clinician mentioned BMI and you want to see where the bands sit for your height.</li></ul>
+  </div>
+
+  <div class="card">
+    <h2>How to use it, step by step</h2>
+    <ol><li>Choose imperial or metric.</li><li>Enter height and weight as they are today.</li><li>Read the BMI and its band.</li><li>Use the healthy-range line to see the weights that correspond to BMI 18.5–24.9 at your height.</li><li>If you train seriously, pair this with a body-fat estimate — BMI cannot see muscle.</li></ol>
+    <h3>What the inputs mean</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:.95rem"><thead><tr style="text-align:left;border-bottom:2px solid var(--border-strong)"><th style="padding:8px">Input</th><th style="padding:8px">What it is</th><th style="padding:8px">Typical values</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px"><strong>Height</strong></td><td style="padding:6px 8px">Barefoot height</td><td style="padding:6px 8px">Adult range roughly 4′8″–6′8″</td></tr><tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px"><strong>Weight</strong></td><td style="padding:6px 8px">Current body weight</td><td style="padding:6px 8px">Morning, post-bathroom is the consistent measure</td></tr><tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px"><strong>Units</strong></td><td style="padding:6px 8px">Imperial (lb/in) or metric (kg/cm)</td><td style="padding:6px 8px">BMI = 703 × lb ÷ in², or kg ÷ m²</td></tr></tbody></table>
+  </div>
+
+  <div class="card">
+    <h2>Another worked example</h2>
+    <p>At 5′6″ and 160 lb, BMI is 25.8 — just inside the 'overweight' band (25–29.9). The same person at 148 lb would read 23.9, inside the healthy band, which shows how few pounds separate the categories at this height — and why the trend matters more than any single reading.</p>
+  </div>
+
+  <div class="card faq">
+    <h2>Frequently asked questions</h2>
+    <h3>What is a healthy BMI?</h3>
+    <p>The CDC defines a healthy BMI as 18.5 to 24.9 for adults. Athletes with high muscle mass may score above 25 while still being healthy.</p>
+    <h3>How accurate is BMI?</h3>
+    <p>It's a quick population-level screen, not a body-fat measurement. Two people with the same BMI can have very different health profiles.</p>
+    <h3>Should I convert my units first?</h3>
+    <p>No — just pick Imperial or Metric above and enter your numbers as-is. The tool converts behind the scenes.</p>
+    <h3>Why does BMI call muscular people overweight?</h3>
+    <p>BMI is weight divided by height squared — it has no way to know what the weight is made of. A lean athlete at 5′10″ and 200 lb scores about 28.7. That is a known limitation, which is why waist size and body-fat percentage are the follow-up checks.</p>
+    <h3>Is BMI used for children?</h3>
+    <p>Not this adult scale. Children and teens are assessed on percentile curves by age and sex — a pediatric standard this calculator deliberately does not apply.</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>📊 Want the full picture?</h3>
+    <p>Pair your BMI with your savings and health goals — our compound interest and savings goal calculators do the money math.</p>
+    <p><a class="btn" href="savings-goal-calculator.html">Try savings goal</a></p>
+  </div>
+</main>
+<div class="nn-ad nn-ad-bottom" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
+<section class="related-tools">
+  <h2>Related tools</h2>
+  <ul>
+    <li><a href="age-calculator.html">Age Calculator</a></li>
+    <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+    <li><a href="tip-calculator.html">Tip Calculator</a></li>
+    <li><a href="time-duration-calculator.html">Time Duration Calculator</a></li>
+  </ul>
+</section>
+<footer class="site-footer"><div class="wrap"><div>© 2026 Monster Calculator</div><div><a href="../terms.html">Terms</a> · <a href="../privacy.html">Privacy</a> · <a href="../index.html">All tools</a> · <a href="../calculators.html">Calculators</a> · <a href="../embed.html">Embed</a> · <a href="../partnerships.html">Partnerships</a> · <a href="../creator-roi-calculators.html">Creator ROI</a></div></div></footer>
+<script>
+/*P4PURE*/
+function bmiMetric(kg,cm){var h=cm/100;return h>0?kg/(h*h):0;}
+function bmiImperial(lbs,totalIn){return totalIn>0?703*lbs/(totalIn*totalIn):0;}
+function bmiCategory(bmi){return bmi<18.5?'Underweight':bmi<25?'Healthy weight':bmi<30?'Overweight':'Obese';}
+function weightForBmiMetric(target,cm){var h=cm/100;return target*h*h;}
+function weightForBmiImperial(target,totalIn){return target*totalIn*totalIn/703;}
+/*P4PURE-END*/
+var UMAP={kg:'kg',cm:'cm',lb:'lbs',ft:'ft',inch:'inch'};
+function convToImp_(){var cm=+document.getElementById(UMAP.cm).value||0,kg=+document.getElementById(UMAP.kg).value||0;var t=cm/2.54,ft=Math.floor(t/12),inch=Math.round((t-ft*12)*10)/10;if(inch>=12){ft+=1;inch=0;}document.getElementById(UMAP.ft).value=ft;document.getElementById(UMAP.inch).value=inch;document.getElementById(UMAP.lb).value=Math.round(kg/0.45359237*10)/10;}
+function convToMet_(){var ft=+document.getElementById(UMAP.ft).value||0,inch=+document.getElementById(UMAP.inch).value||0,lb=+document.getElementById(UMAP.lb).value||0;document.getElementById(UMAP.cm).value=Math.round((ft*12+inch)*2.54*10)/10;document.getElementById(UMAP.kg).value=Math.round(lb*0.45359237*10)/10;}
+var bmiUnitsPrev='imp',bmiMode='mine';
+function toggleUnits(conv){
+  var met=document.getElementById('units').value==='met';
+  var cur=met?'met':'imp';
+  if(conv&&bmiUnitsPrev!==cur){if(met)convToMet_();else convToImp_();}
+  bmiUnitsPrev=cur;
+  try{localStorage.setItem('nnBmiUnits',cur);}catch(e){}
+  document.getElementById('impFields').style.display=met?'none':'block';
+  document.getElementById('metFields').style.display=met?'block':'none';
+  if(conv)calc();
+}
+function setBmiMode(m){
+  bmiMode=m;
+  document.getElementById('bmiModeMine').classList.toggle('active',m==='mine');
+  document.getElementById('bmiModeTarget').classList.toggle('active',m==='target');
+  document.getElementById('bmiTargetField').hidden=m!=='target';
+  document.getElementById('bmiTargetRow').hidden=m!=='target';
+  calc();
+}
+function calc(){
+  var met=document.getElementById('units').value==='met';
+  var bmi,rangeTxt,unit;
+  if(met){
+    var cm=+document.getElementById('cm').value||0,kg=+document.getElementById('kg').value||0;
+    bmi=bmiMetric(kg,cm);
+    var lo=18.5*(cm/100)*(cm/100),hi=24.9*(cm/100)*(cm/100);
+    rangeTxt=lo.toFixed(1)+' – '+hi.toFixed(1)+' kg'; unit='kg';
+    var tw=weightForBmiMetric(+document.getElementById('targetBmi').value||0,cm);
+  }else{
+    var ti=(+document.getElementById('ft').value||0)*12+(+document.getElementById('inch').value||0),lbs=+document.getElementById('lbs').value||0;
+    bmi=bmiImperial(lbs,ti);
+    var lo=18.5*ti*ti/703,hi=24.9*ti*ti/703;
+    rangeTxt=lo.toFixed(1)+' – '+hi.toFixed(1)+' lbs'; unit='lbs';
+    var tw=weightForBmiImperial(+document.getElementById('targetBmi').value||0,ti);
+  }
+  var cat=bmiCategory(bmi);
+  document.getElementById('rBmi').textContent=bmi.toFixed(1);
+  document.getElementById('rCat').textContent=cat;
+  document.getElementById('rRange').textContent=rangeTxt;
+  var tb=+document.getElementById('targetBmi').value||0;
+  document.getElementById('rTargetLab').textContent='Weight at BMI '+tb;
+  document.getElementById('rTargetWeight').textContent=tw>0?tw.toFixed(1)+' '+unit:'—';
+  var bandTxt=cat==='Underweight'?'below 18.5':cat==='Healthy weight'?'18.5–24.9':cat==='Overweight'?'25–29.9':'30 and above';
+  document.getElementById('verdict').textContent='Your BMI of '+bmi.toFixed(1)+' sits in the '+cat+' band ('+bandTxt+'). For your height, the healthy band (18.5–24.9) is '+rangeTxt+'. BMI is a screening measure, not a diagnosis.';
+  document.getElementById('results').classList.add('show');
+  sigSet('Where your BMI sits', sigRulerHTML(14,40,[[18.5,'Under 18.5'],[25,'18.5–24.9'],[30,'25–29.9'],[40,'30 +']],bmi,bmi.toFixed(1),'Bands: CDC adult cutoffs — under 18.5 underweight, 18.5–24.9 healthy, 25–29.9 overweight, 30+ obese.'));
+}
+try{var __su=localStorage.getItem('nnBmiUnits');if(__su){document.getElementById('units').value=__su;bmiUnitsPrev=__su;}}catch(e){}
+document.querySelectorAll('.nn-calc-card input,.nn-calc-card select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc);});
+toggleUnits();calc();
+
+/*P4SIG*/
+function sigSlotBody(){var s=document.querySelector('[data-nn-signature]');return s?s.querySelector('.nn-sig-body'):null;}
+function sigSet(title,html){var b=sigSlotBody();if(!b)return;b.innerHTML=(title?'<p class="sig-title">'+title+'</p>':'')+html;}
+function sigMoney(v){return (v<0?'-$':'$')+Math.abs(Math.round(v)).toLocaleString('en-US');}
+var fmt0=(typeof fmt0==='function')?fmt0:function(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});};
+var fmt1=(typeof fmt1==='function')?fmt1:function(n){return n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});};
+var money=(typeof money==='function')?money:function(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
+var money0=(typeof money0==='function')?money0:function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+
+function sigRulerHTML(min,max,bands,value,valueLabel,note){
+  if(!(max>min))return '';
+  var span=max-min;
+  var cells=bands.map(function(b,i){
+    var from=i===0?min:bands[i-1][0], to=b[0];
+    var w=Math.max(0,Math.min(100,(to-from)/span*100));
+    return '<span class="sig-ruler-band s-'+String.fromCharCode(97+(i%5))+'" style="width:'+w.toFixed(2)+'%"><span class="sig-ruler-lab">'+b[1]+'</span></span>';
+  }).join('');
+  var pos=Math.max(0,Math.min(100,(value-min)/span*100));
+  return '<div class="sig-ruler" role="img" aria-label="'+valueLabel+'"><div class="sig-ruler-track">'+cells+'<span class="sig-ruler-mark" style="left:'+pos.toFixed(2)+'%"></span></div><div class="sig-ruler-val" style="left:'+pos.toFixed(2)+'%">'+valueLabel+'</div></div>'+(note?'<div class="sig-note">'+note+'</div>':'');
+}
+/*P4RULER-END*/</script>
+<script src="../assets/ads.js"></script>
+<script src="../assets/track.js"></script>
+<script src="../assets/nn-tools.js"></script>
+</body>
+</html>

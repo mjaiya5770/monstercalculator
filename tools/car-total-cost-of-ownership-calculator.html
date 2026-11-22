@@ -97,6 +97,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8058544460943611" crossorigin="anonymous"></script>
 
 <!-- NN-EMBED --><script>if(/[?&]embed=1(&|$)/.test(window.location.search))document.documentElement.classList.add("nn-embed");</script>
+<script>if(/[?&]embed=1(&|$)/.test(window.location.search))window.location.replace("../widgets/car-total-cost-of-ownership-calculator.html?embed=1");</script>
 </head>
 <body>
 <header class="site-header">
@@ -110,62 +111,15 @@
   <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../calculators.html#cat-real-estate-investor-tools">Real estate investor tools</a> › Car Total Cost of Ownership Calculator</div>
 <div class="nn-ad nn-ad-top" data-k728="277b0aaf6be197cbf43956912cdc9bd8" data-k320="c1dac9918d6bd3576a22e928e0aa2cff"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
   <h1 class="tool-title">Car Total Cost of Ownership Calculator</h1>
+   <div class="card nn-use-cta">
+     <h2>\1</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/car-total-cost-of-ownership-calculator.html">\1 &rarr;</a></p>
+   </div>
+   
   <p class="lede">The sticker price is the smallest honest number about a car. This adds up everything five years of owning it actually costs — payments, depreciation, fuel or electricity, insurance, upkeep — and reduces it to the two numbers that compare cars fairly: cost per year and cost per mile.</p>
 
-  <div class="card nn-calc-card">
-
-    <div class="row">
-      <div class="field"><label for="price">Purchase price ($)</label><input id="price" type="number" value="38000" min="0" step="any"></div>
-      <div class="field"><label for="down">Down payment ($)</label><input id="down" type="number" value="3800" min="0" step="any"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label for="apr">Loan APR (%)</label><input id="apr" type="number" value="6.9" min="0" step="any"></div>
-      <div class="field"><label for="years">Years you will keep it</label><input id="years" type="number" value="5" min="1" step="any"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label for="depr">Depreciation per year (%)</label><input id="depr" type="number" value="16" min="0" max="60" step="any"></div>
-      <div class="field"><label for="miles">Miles driven per year</label><input id="miles" type="number" value="12000" min="0" step="any"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label for="fueltype">Fuel type</label><select id="fueltype"><option value="gas" selected>Gasoline</option><option value="ev">Electric</option></select></div>
-      <div class="field"><label for="mpg">MPG (gas cars)</label><input id="mpg" type="number" value="30" min="0" step="any"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label for="gasprice">Gas price ($ per gallon)</label><input id="gasprice" type="number" value="3.40" min="0" step="any"></div>
-      <div class="field"><label for="kwh100">EV usage (kWh per 100 miles)</label><input id="kwh100" type="number" value="30" min="0" step="any"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label for="elecprice">Electricity price ($ per kWh)</label><input id="elecprice" type="number" value="0.17" min="0" step="any"></div>
-      <div class="field"><label for="ins">Insurance per year ($)</label><input id="ins" type="number" value="1900" min="0" step="any"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label for="maint">Maintenance &amp; repairs per year ($)</label><input id="maint" type="number" value="950" min="0" step="any"></div>
-      <div class="field"><label for="reg">Registration &amp; fees per year ($)</label><input id="reg" type="number" value="220" min="0" step="any"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label for="misc">Tires &amp; other per year ($)</label><input id="misc" type="number" value="300" min="0" step="any"></div>
-      <div class="field"><label for="loanterm">Loan term (months)</label><input id="loanterm" type="number" value="60" min="1" step="any"></div>
-    </div>
-    <p style="color:var(--muted);font-size:.92rem;margin:4px 0 0">Depreciation is counted the honest way — through the resale value subtracted at the end — rather than charging both the loan payments and the value loss, which would double-count the car itself. Running costs (fuel, insurance, upkeep) are real cash on top. The EV toggle swaps the fuel math to electricity at your home rate; the EV Charging Cost Estimator goes deeper on charging.</p>
-
-    <button class="btn" onclick="calc()">Total the ownership cost</button>
-    <div class="nn-actions no-print" data-nn-actions>
-  <button type="button" class="nn-btn" data-nn="share">🔗 Copy link to this result</button>
-  <button type="button" class="nn-btn" data-nn="copy">📋 Copy result</button>
-  <button type="button" class="nn-btn" data-nn="save">💾 Save this calculation</button>
-  <button type="button" class="nn-btn" data-nn="print">🖨️ Print / Save PDF</button>
-</div>
-<div class="nn-saves no-print" id="nnSavesPanel" hidden></div>
-<p class="nn-embed-link no-print"><a href="../embed.html#car-total-cost-of-ownership-calculator">Embed this calculator on your site — free</a></p>
-<div class="results" id="results">
-      <div style="color:var(--muted);font-size:.9rem">True 5-year cost of ownership</div>
-      <div id="verdict" style="font-weight:700;font-size:1.02rem;margin:2px 0 6px"></div>
-      <div class="big" id="rMain">—</div>
-      <table><tbody id="rows"></tbody></table>
-    
-<div class="nn-signature no-print" data-nn-signature hidden><div class="nn-sig-title">Where the money goes</div><div class="nn-sig-body"></div></div>
-</div>
-  </div>
+  
 <div class="nn-ad" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
 
   <div class="card">
@@ -225,7 +179,12 @@
 </main>
 
 <div class="nn-ad nn-ad-bottom" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
-<section class="related-tools">
+<div class="card nn-use-cta">
+     <h2>Ready to run your numbers?</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/car-total-cost-of-ownership-calculator.html">\1 &rarr;</a></p>
+   </div>
+   <section class="related-tools">
   <h2>Related tools</h2>
   <ul>
     <li><a href="buy-vs-lease-car-calculator.html">Buy vs Lease Car Calculator</a></li>
@@ -236,72 +195,7 @@
   </ul>
 </section>
 <footer class="site-footer"><div class="wrap"><div>© 2026 Monster Calculator</div><div><a href="../terms.html">Terms</a> · <a href="../privacy.html">Privacy</a> · <a href="../index.html">All tools</a> · <a href="../calculators.html">Calculators</a> · <a href="../embed.html">Embed</a> · <a href="../partnerships.html">Partnerships</a> · <a href="../creator-roi-calculators.html">Creator ROI</a></div></div></footer>
-<script>
 
-function v(id){return +document.getElementById(id).value||0;}
-function sv(id){return document.getElementById(id).value;}
-function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
-function fmt0(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});}
-function fmt1(n){return n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});}
-function row(l,val){return '<tr><td>'+l+'</td><td>'+val+'</td></tr>';}
-function money(n){return '$'+fmt(n);}
-function money0(n){return '$'+fmt0(Math.round(n));}
-function ceilg(x){return Math.ceil(x-1e-9);}
-function pmt(P,apr,years){var r=apr/100/12,n=Math.round(years*12);if(r===0)return P/n;return P*r/(1-Math.pow(1+r,-n));}
-
-/*PURE-BEGIN*/
-function pmt(P,apr,years){var r=apr/100/12,n=Math.round(years*12);if(r===0)return P/n;return P*r/(1-Math.pow(1+r,-n));}
-function tcoCalc(o){
-  var loan=Math.max(0,o.price-o.down);
-  var pay=pmt(loan,o.apr,o.loanterm/12);
-  var payMonths=Math.min(o.loanterm,o.years*12);
-  var fuelYr=o.fueltype==='ev'?(o.miles/100*o.kwh100*o.elecprice):(o.miles/Math.max(1,o.mpg)*o.gasprice);
-  var runYr=fuelYr+o.ins+o.maint+o.reg+o.misc;
-  var gross=o.down+pay*payMonths+runYr*o.years;
-  var resale=o.price*Math.pow(1-o.depr/100,o.years);
-  var net=gross-resale, totalMiles=o.miles*o.years;
-  return {pmt:pay,fuelYr:fuelYr,runYr:runYr,gross:gross,resale:resale,net:net,perYear:o.years>0?net/o.years:0,perMile:totalMiles>0?net/totalMiles:0};
-}
-/*PURE-END*/
-/*P4SIG*/
-function sigSlotBody(){var s=document.querySelector('[data-nn-signature]');return s?s.querySelector('.nn-sig-body'):null;}
-function sigSet(title,html){var b=sigSlotBody();if(!b)return;b.innerHTML=(title?'<p class="sig-title">'+title+'</p>':'')+html;}
-function sigMoney(v){return (v<0?'-$':'$')+Math.abs(Math.round(v)).toLocaleString('en-US');}
-var fmt0=(typeof fmt0==='function')?fmt0:function(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});};
-var fmt1=(typeof fmt1==='function')?fmt1:function(n){return n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});};
-var money=(typeof money==='function')?money:function(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
-var money0=(typeof money0==='function')?money0:function(n){return '$'+Math.round(n).toLocaleString('en-US');};
-
-function sigStackHTML(segs,total,fmt,note){
-  var vis=segs.filter(function(s){return s[1]>0;});
-  if(!vis.length||!(total>0))return '';
-  var bar=vis.map(function(s,i){
-    var pct=Math.max(0,Math.min(100,s[1]/total*100));
-    return '<span class="sig-stack-seg s-'+String.fromCharCode(97+(i%5))+'" style="width:'+pct.toFixed(2)+'%"></span>';
-  }).join('');
-  var leg=vis.map(function(s,i){
-    return '<div class="sig-leg-row"><span class="sig-dot s-'+String.fromCharCode(97+(i%5))+'"></span><span class="sig-leg-label">'+s[0]+'</span><strong>'+fmt(s[1])+' · '+(s[1]/total*100).toFixed(0)+'%</strong></div>';
-  }).join('');
-  return '<div class="sig-stackbar" role="img" aria-label="Composition breakdown">'+bar+'</div>'+leg+(note?'<div class="sig-note">'+note+'</div>':'');
-}
-/*P4STACK-END*/
-function calc(){
-  var o={price:Math.max(0,v('price')),down:Math.max(0,v('down')),apr:Math.max(0,v('apr')),years:Math.max(1,v('years')),depr:Math.min(60,Math.max(0,v('depr'))),miles:Math.max(0,v('miles')),fueltype:sv('fueltype'),mpg:Math.max(0,v('mpg')),gasprice:Math.max(0,v('gasprice')),kwh100:Math.max(0,v('kwh100')),elecprice:Math.max(0,v('elecprice')),ins:Math.max(0,v('ins')),maint:Math.max(0,v('maint')),reg:Math.max(0,v('reg')),misc:Math.max(0,v('misc')),loanterm:Math.max(1,v('loanterm'))};
-  var r=tcoCalc(o);
-  document.getElementById('rMain').textContent=money0(r.net)+' over '+o.years+' years';
-  document.getElementById('verdict').textContent='That is '+money0(r.perYear)+' a year and $'+fmt(r.perMile)+' a mile — the two numbers to hold against any other car you are considering.';
-  document.getElementById('rows').innerHTML=row('Loan payment',money(r.pmt)+' / month')+row('Fuel / electricity per year',money0(r.fuelYr))
-    +row('All running costs per year',money0(r.runYr))+row('Gross outlay',money0(r.gross))+row('Resale value at the end',money0(r.resale))
-    +row('True cost of ownership',money0(r.net))+row('Cost per year',money0(r.perYear))+row('Cost per mile','$'+fmt(r.perMile));
-  sigSet(null,sigStackHTML([['Down payment',o.down],['Loan payments',r.pmt*Math.min(o.loanterm,o.years*12)],['Running costs (fuel, insurance, upkeep)',r.runYr*o.years]],r.gross,money0,'Gross outlay before resale. The car gives back '+money0(r.resale)+' at the end — true cost '+money0(r.net)+', or $'+fmt(r.perMile)+' a mile.'));
-  document.getElementById('results').classList.add('show');
-}
-
-function live(){document.querySelectorAll('input,select,textarea').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc);});}
-
-live(); calc();
-
-</script>
 
 <script src="../assets/ads.js"></script>
 <script src="../assets/track.js"></script>
