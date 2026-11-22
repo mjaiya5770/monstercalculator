@@ -2214,3 +2214,17 @@ main .card h2{margin-bottom:.45em}
 .nn-uh-ad .nn-house{max-height:none}
 .hc-bar-btn{font-size:.78rem;padding:4px 7px}
 .hc-title{font-size:.94rem;min-width:0}
+
+/* NN-COMPACT (2026-11-21, Mundeep: "optimize and compact each calculator"):
+   tighter embed-mode spacing across every calculator widget — less padding,
+   slimmer fields and result panel — so each calculator sits shorter in the
+   hero frame while tap targets stay comfortable. */
+html.nn-embed .nn-calc-card{padding:10px 12px;border-radius:14px}
+html.nn-embed .nn-calc-card .field{margin-bottom:6px}
+html.nn-embed .nn-calc-card input,html.nn-embed .nn-calc-card select{padding:7px 9px}
+html.nn-embed .nn-calc-card .seg{gap:4px}
+html.nn-embed .nn-calc-card .seg button{padding:5px 10px}
+html.nn-embed .nn-calc-card .btn{padding:9px 14px;margin-top:2px}
+html.nn-embed .nn-result{margin-top:8px;padding:10px 12px}
+html.nn-embed .nn-result .rv{font-size:1.4rem}
+html.nn-embed .nn-result .rl{font-size:.8rem}
