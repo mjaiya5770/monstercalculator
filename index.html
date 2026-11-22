@@ -119,7 +119,7 @@
       </div>
       <div class="hc-view" id="hcTool" hidden>
         <iframe id="hcFrame" title="Calculator" loading="lazy" style="border:0;width:100%;border-radius:12px;background:#fff"></iframe>
-        <p class="hc-tool-foot"><a id="hcOpenFull" href="calculators.html">Open the full calculator page &rarr;</a></p>
+        <p class="hc-tool-foot"><a id="hcOpenFull" href="calculators.html">Open the full guide &rarr;</a></p>
       </div>
       <div class="hc-view" id="hcHistory" hidden>
         <ul class="hc-history-list" id="hcHistoryList"></ul>
@@ -504,11 +504,13 @@
     });
   }
   /* ---------- loading a calculator into the module ---------- */
+  var NN_WIDGETS={'bmi-calculator':1};
   function loadTool(href, name){
     if(!href || href.indexOf('tools/')!==0) return false;
     currentTool={href:href, name:name||'Calculator'};
     titleEl.textContent=currentTool.name;
-    frame.src=href+(href.indexOf('?')>-1?'&':'?')+'embed=1';
+    var slug=href.replace('tools/','').replace('.html','');
+    frame.src=(NN_WIDGETS[slug]?'widgets/'+slug+'.html':href)+'?embed=1';
     openFull.href=href;
     showView('tool');
     pushHistory({t:'tool', text:currentTool.name, href:href});
@@ -516,6 +518,8 @@
     return true;
   }
   window.nnHeroLoadTool=loadTool;
+  /* Deep link from guide pages: ?use=tools/<slug>.html opens that calculator here */
+  (function(){ var m=/[?&]use=(tools\/[a-z0-9\-]+\.html)/.exec(window.location.search); if(!m) return; var a=document.querySelector('a[href="'+m[1]+'"]'); loadTool(m[1], a?a.textContent.trim():undefined); })();
   document.addEventListener('click',function(e){
     if(e.ctrlKey||e.metaKey||e.shiftKey||e.button!==0) return;
     var t=e.target; if(!t||!t.closest) return;

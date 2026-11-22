@@ -2118,7 +2118,7 @@ html[data-skin] .nn-signature {
    content (formula, examples, FAQ) stays below the fold.
    ============================================================ */
 /* Hero calculator: viewport-aware frame instead of a fixed 640px box */
-#hcFrame{height:min(600px,calc(100dvh - 190px))!important;min-height:470px;border-radius:12px}
+#hcFrame{height:min(560px,calc(100dvh - 190px))!important;min-height:440px;border-radius:12px}
 @media (max-width:560px){#hcFrame{height:calc(100dvh - 170px)!important;min-height:440px}}
 .hero-calc{max-width:440px}
 /* Compact calculator card: tightened spacing scale */
@@ -2137,6 +2137,12 @@ html[data-skin] .nn-signature {
 html.nn-embed .nn-calc-card{padding:12px}
 html.nn-embed main .wrap{padding-top:8px;padding-bottom:8px}
 html.nn-embed .nn-embed-bar{margin-bottom:9px;padding:7px 11px}
+/* Embed v2: the widget alone fills the frame — no short-answer box, tighter fields */
+html.nn-embed .nn-answer{display:none!important}
+html.nn-embed .nn-calc-card .field{margin-bottom:7px}
+html.nn-embed .nn-calc-card .field input,html.nn-embed .nn-calc-card .field select{padding:8px 10px}
+html.nn-embed .nn-calc-card>.btn{padding:10px 16px}
+html.nn-embed .nn-calc-card .results{margin-top:9px;padding:10px 12px}
 /* Very short screens: squeeze further rather than scroll */
 @media (max-height:700px){
   .nn-calc-card{padding:10px 12px}
@@ -2144,3 +2150,8 @@ html.nn-embed .nn-embed-bar{margin-bottom:9px;padding:7px 11px}
   .nn-calc-card .field input,.nn-calc-card .field select{padding:8px 10px}
   #hcFrame{min-height:400px}
 }
+
+/* Guide pages: the Use-the-calculator call to action */
+.nn-use-cta{text-align:center;padding:clamp(16px,3vw,26px)}
+.nn-use-cta h2{margin-top:0}
+.nn-use-cta .btn{display:inline-block;font-size:1.05rem;padding:13px 26px}
