@@ -1138,7 +1138,9 @@
   if (window.parent === window) return;
   var last = 0;
   function post() {
-    var h = Math.ceil(Math.max(document.documentElement.scrollHeight, document.body ? document.body.scrollHeight : 0)) + 4;
+    var h = 0, kids = document.body ? document.body.children : [];
+    for (var i = 0; i < kids.length; i++) { var el = kids[i]; if (el.offsetHeight) { var b = el.offsetTop + el.offsetHeight; if (b > h) h = b; } }
+    h = Math.ceil(h) + 10;
     if (h && h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
   }
   document.addEventListener('click', function () { setTimeout(post, 60); setTimeout(post, 450); }, true);

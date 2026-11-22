@@ -2208,3 +2208,9 @@ main .card h2{margin-bottom:.45em}
 @media (min-width:921px){.nn-uh-ad .nn-ad{position:sticky;top:84px}}
 /* Clean hero: no floating glyph decorations — headline, search, calculator */
 .hero-glyphs{display:none!important}
+
+/* NN-FIT2: under-hero house promo uncapped (narrow column wraps taller than the
+   120px base cap); hero bar tightened so calculator titles stop truncating. */
+.nn-uh-ad .nn-house{max-height:none}
+.hc-bar-btn{font-size:.78rem;padding:4px 7px}
+.hc-title{font-size:.94rem;min-width:0}
