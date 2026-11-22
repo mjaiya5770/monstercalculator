@@ -522,6 +522,7 @@
   var NN_WIDGETS={'bmi-calculator':1,'break-even-calculator':1,'buy-vs-lease-car-calculator':1,'cap-rate-calculator':1,'car-total-cost-of-ownership-calculator':1,'cash-on-cash-calculator':1,'ev-vs-gas-calculator':1,'freelance-rate-calculator':1,'generator-sizing-calculator':1,'invoice-generator':1,'llm-api-cost-estimator':1,'mileage-deduction-calculator':1,'payment-fee-calculator':1,'quarterly-tax-calculator':1,'rental-property-analyzer':1,'repair-vs-replace-calculator':1,'roi-calculator':1,'sponsorship-rate-calculator':1,'tiktok-earnings-calculator':1,'water-heater-sizing-calculator':1,'youtube-earnings-calculator':1};
   function loadTool(href, name){
     if(!href || href.indexOf('tools/')!==0) return false;
+    if(!name||name==='Calculator'){var ca=document.querySelector('a[href="'+href+'"]'); if(ca) name=ca.textContent.trim();}
     currentTool={href:href, name:name||'Calculator'};
     titleEl.textContent=currentTool.name;
     var slug=href.replace('tools/','').replace('.html','');
@@ -543,7 +544,7 @@
     var target = null;
     if (e.source === frame.contentWindow) { if (view !== 'tool') return; target = frame; }
     else { var uh = document.getElementById('uhFrame'); if (uh && e.source === uh.contentWindow) target = uh; }
-    if (target) target.style.height = Math.max(300, Math.min(Math.ceil(h) + 14, 2600)) + 'px';
+    if (target) target.style.height = Math.max(300, Math.min(Math.ceil(h) + 10, 2600)) + 'px';
   });
   document.addEventListener('click',function(e){
     if(e.ctrlKey||e.metaKey||e.shiftKey||e.button!==0) return;

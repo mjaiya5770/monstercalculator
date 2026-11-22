@@ -1149,7 +1149,7 @@
       if (b > h) h = b;
     }
     if (!h) return;
-    h = Math.ceil(h) + 14;
+    h = Math.ceil(h) + 48;
     if (h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
   }
   window.addEventListener('load', post);
