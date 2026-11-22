@@ -1979,7 +1979,6 @@ html[data-skin] .results .verdict {
   border-radius: 9px;
   background: color-mix(in srgb, var(--skin-b) 18%, transparent);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transform: rotate(-1.3deg);
 }
 html[data-skin] .results #verdict:empty,
 html[data-skin] .results .verdict:empty { display: none; }
@@ -2010,8 +2009,8 @@ html[data-skin] .nn-signature {
   to { opacity: 1; transform: none; }
 }
 @keyframes nnStampIn {
-  from { opacity: 0; transform: rotate(2.5deg) scale(1.25); }
-  to { opacity: 1; transform: rotate(-1.3deg) scale(1); }
+  from { opacity: 0; transform: scale(1.25); }
+  to { opacity: 1; transform: scale(1); }
 }
 @media (prefers-reduced-motion: reduce) {
   html[data-skin] .nn-calc-card,
@@ -2074,7 +2073,7 @@ html[data-skin] .nn-signature {
 .hero-wrap{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
 .hero-copy{min-width:0}
 @media(min-width:1025px){.hero-wrap{grid-template-columns:minmax(0,1fr) 340px}}
-.hero-calc{background:linear-gradient(160deg,var(--teal-darker),var(--teal-dark));border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:16px;box-shadow:var(--shadow-lg);transform:rotate(-1.2deg);max-width:360px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-calc{background:linear-gradient(160deg,var(--teal-darker),var(--teal-dark));border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:16px;box-shadow:var(--shadow-lg);max-width:420px;margin:0 auto;width:100%;position:relative;z-index:1}
 .hc-bar{display:flex;align-items:center;gap:8px;margin-bottom:12px}
 .hc-title{flex:1;font-weight:800;color:#fff;font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
 .hc-bar-actions{display:flex;gap:6px;flex:none}
@@ -2109,4 +2108,39 @@ html[data-skin] .nn-signature {
   body.hc-printing .hc-receipt h2{margin:0 0 12px}
   body.hc-printing .hc-receipt p{font-size:1.1rem;margin:4px 0}
   body.hc-printing .hc-receipt .hc-receipt-date{color:#555;font-size:.85rem;margin-top:16px}
+}
+
+/* ============================================================
+   NN-FIT (2026-11-21, emergency redesign): NO-SCROLL FIT SYSTEM
+   Rule: the working calculator — fields, actions and result —
+   fits within one viewport height and is fully operable without
+   scrolling. Nothing in calculator UI is rotated. Teaching
+   content (formula, examples, FAQ) stays below the fold.
+   ============================================================ */
+/* Hero calculator: viewport-aware frame instead of a fixed 640px box */
+#hcFrame{height:min(600px,calc(100dvh - 190px))!important;min-height:470px;border-radius:12px}
+@media (max-width:560px){#hcFrame{height:calc(100dvh - 170px)!important;min-height:440px}}
+.hero-calc{max-width:440px}
+/* Compact calculator card: tightened spacing scale */
+.nn-calc-card{padding:clamp(12px,2.4vw,20px)}
+.nn-calc-card .field{margin-bottom:9px}
+.nn-calc-card .field label{margin-bottom:4px;font-size:.86rem}
+.nn-calc-card .field input,.nn-calc-card .field select,.nn-calc-card .field textarea{padding:9px 11px;font-size:16px}
+.nn-calc-card .row{gap:9px}
+.nn-calc-card>.btn{margin-top:2px;padding:11px 18px}
+.nn-calc-card .nn-actions{margin-top:9px;gap:6px}
+.nn-calc-card .results{margin-top:11px;padding:12px 14px}
+.nn-calc-card .results .big{font-size:clamp(1.45rem,5.2vw,1.9rem)}
+/* Short-answer block above the card: tighter so the card reaches the first screen */
+.short-answer,.nn-short-answer{padding:11px 14px;margin-bottom:11px}
+/* Embed mode: the widget alone must fit its frame — compact chrome */
+html.nn-embed .nn-calc-card{padding:12px}
+html.nn-embed main .wrap{padding-top:8px;padding-bottom:8px}
+html.nn-embed .nn-embed-bar{margin-bottom:9px;padding:7px 11px}
+/* Very short screens: squeeze further rather than scroll */
+@media (max-height:700px){
+  .nn-calc-card{padding:10px 12px}
+  .nn-calc-card .field{margin-bottom:7px}
+  .nn-calc-card .field input,.nn-calc-card .field select{padding:8px 10px}
+  #hcFrame{min-height:400px}
 }
