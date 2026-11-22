@@ -2250,3 +2250,11 @@ html.nn-embed main{display:block}
    (dead seats/sections), which forced a scrollbar and a white void into every
    frame. Results panels that live outside the card are spared. */
 html.nn-embed .nn-calc-card ~ *:not(.nn-calc-card):not(.results){display:none!important}
+
+/* NN-FIT6: spare the actions toolbar (invoice totals/print live there, after
+   the cards); un-stretch body/main in embed mode — a flex-stretched main was
+   coupling the document height to the frame height. */
+html.nn-embed .nn-calc-card ~ .nn-actions{display:flex!important}
+html.nn-embed body{display:block!important;min-height:0!important}
+html.nn-embed main{flex:none!important;height:auto!important;min-height:0!important}
+html.nn-embed main .wrap{padding-bottom:8px}
