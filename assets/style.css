@@ -2244,3 +2244,9 @@ html.nn-embed main{display:block}
 .hc-bar{padding:8px 10px}
 .hc-title{font-size:.85rem}
 .hc-bar-btn{font-size:.7rem;padding:3px 4px}
+
+/* NN-FIT5: in embed mode, NOTHING after the calculator card inside its column
+   renders — the tool template leaves ~120px of invisible layout space there
+   (dead seats/sections), which forced a scrollbar and a white void into every
+   frame. Results panels that live outside the card are spared. */
+html.nn-embed .nn-calc-card ~ *:not(.nn-calc-card):not(.results){display:none!important}

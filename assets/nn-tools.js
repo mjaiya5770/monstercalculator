@@ -1132,24 +1132,24 @@
 
 /* NN-EMBED-FIT (2026-11-21): in embed mode, report the content height to the
    parent page so the hero frame sizes itself to the calculator — the widget
-   fits fully with no internal scrolling. v5: measure the bottom of the
-   calculator card(s) themselves (plus the embed bar) — deterministic, immune
-   to flex centering and viewport-coupled elements. */
+   fits fully with no internal scrolling. v6: true document height, hard-capped
+   just past the lowest measured content (card / embed bar / results) so the
+   frame can never inflate itself. */
 (function(){ try {
   if (!document.documentElement.classList.contains('nn-embed')) return;
   if (window.parent === window) return;
   var last = 0;
   function post() {
-    var h = 0;
-    var els = document.querySelectorAll('.nn-calc-card, .nn-embed-bar');
+    var base = 0;
+    var els = document.querySelectorAll('.nn-calc-card, .nn-embed-bar, .results');
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (!el.offsetHeight) continue;
       var b = el.getBoundingClientRect().bottom + (window.scrollY || 0);
-      if (b > h) h = b;
+      if (b > base) base = b;
     }
-    if (!h) return;
-    h = Math.ceil(h) + 48;
+    if (!base) return;
+    var h = Math.min(document.documentElement.scrollHeight, base + 90) + 10;
     if (h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
   }
   window.addEventListener('load', post);
