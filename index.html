@@ -544,7 +544,7 @@
     var target = null;
     if (e.source === frame.contentWindow) { if (view !== 'tool') return; target = frame; }
     else { var uh = document.getElementById('uhFrame'); if (uh && e.source === uh.contentWindow) target = uh; }
-    if (target) target.style.height = Math.max(300, Math.min(Math.ceil(h) + 10, 2600)) + 'px';
+    if (target) target.style.height = Math.max(300, Math.min(Math.ceil(h) + 10, 4000)) + 'px';
   });
   document.addEventListener('click',function(e){
     if(e.ctrlKey||e.metaKey||e.shiftKey||e.button!==0) return;
