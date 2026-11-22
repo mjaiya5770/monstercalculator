@@ -1130,38 +1130,37 @@
   else { init(); }
 })();
 
-/* NN-EMBED-FIT (2026-11-21): in embed mode, report the content height to the
-   parent page so the hero frame sizes itself to the calculator — the widget
-   fits fully with no internal scrolling. v8: dead layout space after the
-   calculator is hidden in JS (only elements that hold no calculator, results
-   or actions), then the true document height is reported. */
+/* NN-EMBED-FIT DEBUG (temporary, 2026-11-21): visible readout of the widget's
+   own measurements so the oversized element can be identified. */
 (function(){ try {
   if (!document.documentElement.classList.contains('nn-embed')) return;
-  if (window.parent === window) return;
-  var KEEP = '.nn-calc-card, .nn-embed-bar, .results, .nn-actions';
-  function clean() {
-    var main = document.querySelector('main');
-    if (!main || main.__nnCleaned) return;
-    var firstCard = main.querySelector('.nn-calc-card');
-    if (!firstCard) return;
-    main.__nnCleaned = true;
-    var all = main.querySelectorAll('*');
-    for (var i = 0; i < all.length; i++) {
-      var el = all[i];
-      if (el.closest('.nn-calc-card') || el.closest('.nn-actions')) continue;
-      if (el.matches(KEEP) || el.querySelector(KEEP)) continue;
-      if (firstCard.compareDocumentPosition(el) & 4) el.style.display = 'none';
+  var dbg = document.createElement('div');
+  dbg.style.cssText = 'position:fixed;top:0;left:0;z-index:99999;background:#000;color:#0f0;font:11px/1.5 monospace;padding:8px;pointer-events:none;max-width:96vw;white-space:pre-wrap';
+  document.body.appendChild(dbg);
+  function kids(el, label) {
+    var out = [];
+    if (!el) return label + ': none';
+    for (var i = 0; i < el.children.length; i++) {
+      var c = el.children[i];
+      out.push(c.tagName + '.' + (c.className && c.className.baseVal !== undefined ? '' : String(c.className).split(' ')[0]) + ' top=' + c.offsetTop + ' h=' + c.offsetHeight);
     }
+    return label + ': ' + out.join(' | ');
   }
-  var last = 0;
-  function post() {
-    clean();
-    var h = document.documentElement.scrollHeight + 6;
-    if (h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
+  function show() {
+    var card = document.querySelector('.nn-calc-card');
+    var cb = card ? Math.round(card.getBoundingClientRect().bottom + (window.scrollY || 0)) : -1;
+    var cs = getComputedStyle(document.body);
+    var ms = document.querySelector('main') ? getComputedStyle(document.querySelector('main')) : null;
+    dbg.textContent = 'deSH=' + document.documentElement.scrollHeight +
+      ' bodySH=' + document.body.scrollHeight +
+      ' innerH=' + window.innerHeight +
+      ' cardBottom=' + cb +
+      ' bodyMinH=' + cs.minHeight + ' bodyH=' + cs.height +
+      (ms ? ' mainMinH=' + ms.minHeight + ' mainH=' + ms.height + ' mainDisp=' + ms.display : '') +
+      '\n' + kids(document.body, 'BODY') +
+      '\n' + kids(document.querySelector('main'), 'MAIN');
   }
-  window.addEventListener('load', post);
-  window.addEventListener('resize', post);
-  document.addEventListener('click', function(){ setTimeout(post, 60); setTimeout(post, 350); }, true);
-  setInterval(post, 900);
-  post();
+  window.addEventListener('load', show);
+  setInterval(show, 1000);
+  setTimeout(show, 300);
 } catch(e){} })();
