@@ -1138,9 +1138,10 @@
   if (window.parent === window) return;
   var last = 0;
   function post() {
-    var h = Math.ceil(document.documentElement.scrollHeight);
+    var h = Math.ceil(Math.max(document.documentElement.scrollHeight, document.body ? document.body.scrollHeight : 0)) + 4;
     if (h && h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
   }
+  document.addEventListener('click', function () { setTimeout(post, 60); setTimeout(post, 450); }, true);
   if (window.ResizeObserver) { try { new ResizeObserver(post).observe(document.body); } catch (e) {} }
   window.addEventListener('load', post);
   window.addEventListener('resize', post);

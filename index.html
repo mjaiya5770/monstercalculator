@@ -525,8 +525,7 @@
     if (e.origin !== window.location.origin) return;
     var h = e.data && e.data.nnEmbedHeight;
     if (!h || view !== 'tool') return;
-    var max = Math.floor(window.innerHeight * 0.94);
-    frame.style.height = Math.max(300, Math.min(Math.ceil(h), max)) + 'px';
+    frame.style.height = Math.max(300, Math.min(Math.ceil(h) + 20, 1600)) + 'px';
   });
   document.addEventListener('click',function(e){
     if(e.ctrlKey||e.metaKey||e.shiftKey||e.button!==0) return;
