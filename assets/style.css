@@ -2237,3 +2237,10 @@ html.nn-embed .nn-result .rl{font-size:.8rem}
 .hc-bar-actions{display:flex;gap:2px}
 .hc-bar-btn{padding:3px 5px;font-size:.72rem}
 .hc-title{flex:1 1 40%}
+
+/* NN-FIT4: widgets are block-laid-out in embed mode (the tool template's flex
+   main centres content and corrupts height maths); hero title squeeze v2. */
+html.nn-embed main{display:block}
+.hc-bar{padding:8px 10px}
+.hc-title{font-size:.85rem}
+.hc-bar-btn{font-size:.7rem;padding:3px 4px}

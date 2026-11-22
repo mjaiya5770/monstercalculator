@@ -1132,25 +1132,29 @@
 
 /* NN-EMBED-FIT (2026-11-21): in embed mode, report the content height to the
    parent page so the hero frame sizes itself to the calculator — the widget
-   fits fully with no internal scrolling. */
+   fits fully with no internal scrolling. v5: measure the bottom of the
+   calculator card(s) themselves (plus the embed bar) — deterministic, immune
+   to flex centering and viewport-coupled elements. */
 (function(){ try {
   if (!document.documentElement.classList.contains('nn-embed')) return;
   if (window.parent === window) return;
   var last = 0;
   function post() {
-    var h = 0, root = document.querySelector('main') || document.body;
-    var els = root.getElementsByTagName('*');
-    for (var i = 0; i < els.length; i++) { var el = els[i];
+    var h = 0;
+    var els = document.querySelectorAll('.nn-calc-card, .nn-embed-bar');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
       if (!el.offsetHeight) continue;
-      if (window.getComputedStyle(el).position === 'fixed') continue;
       var b = el.getBoundingClientRect().bottom + (window.scrollY || 0);
-      if (b > h) h = b; }
-    h = Math.ceil(h) + 12;
-    if (h && h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
+      if (b > h) h = b;
+    }
+    if (!h) return;
+    h = Math.ceil(h) + 14;
+    if (h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
   }
-  document.addEventListener('click', function () { setTimeout(post, 60); setTimeout(post, 450); }, true);
-  if (window.ResizeObserver) { try { new ResizeObserver(post).observe(document.body); } catch (e) {} }
   window.addEventListener('load', post);
   window.addEventListener('resize', post);
-  setInterval(post, 700);
-} catch (e) {} })();
+  document.addEventListener('click', function(){ setTimeout(post, 60); setTimeout(post, 350); }, true);
+  setInterval(post, 900);
+  post();
+} catch(e){} })();
