@@ -2253,3 +2253,12 @@ html.nn-embed .nn-calc-card ~ .nn-actions{display:flex!important}
 html.nn-embed body{display:block!important;min-height:0!important}
 html.nn-embed main{flex:none!important;height:auto!important;min-height:0!important}
 html.nn-embed main .wrap{padding-bottom:8px}
+
+/* NN-FIT7: the wrap's page padding (56px top / 80px bottom) and the card's
+   28px bottom margin are page breathing room — inside an embed frame they
+   render as dead white space above and below the calculator. Trim them in
+   embed mode only, and show the toolbar that is a direct child of main
+   (invoice totals / Print / Save PDF live there). */
+html.nn-embed main.wrap{padding-top:12px!important;padding-bottom:10px!important}
+html.nn-embed .nn-calc-card{margin-bottom:0!important}
+html.nn-embed main>.nn-actions{display:flex!important}

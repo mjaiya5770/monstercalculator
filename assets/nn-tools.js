@@ -1130,33 +1130,24 @@
   else { init(); }
 })();
 
-/* NN-EMBED-FIT DEBUG2 (temporary, 2026-11-21) */
+/* NN-EMBED-FIT (2026-11-21): in embed mode, report the content height to the
+   parent page so the hero frame sizes itself to the calculator — the widget
+   fits fully with no internal scrolling. The height is the main column's own
+   box (rect-based, never scrollHeight, which is clamped to the frame height
+   and would inflate the frame it measures). */
 (function(){ try {
   if (!document.documentElement.classList.contains('nn-embed')) return;
-  var dbg = document.createElement('div');
-  dbg.style.cssText = 'position:fixed;top:0;left:0;z-index:99999;background:#000;color:#0f0;font:11px/1.5 monospace;padding:8px;pointer-events:none;max-width:96vw;white-space:pre-wrap';
-  document.body.appendChild(dbg);
-  function show() {
+  if (window.parent === window) return;
+  var last = 0;
+  function post() {
     var main = document.querySelector('main');
-    var card = document.querySelector('.nn-calc-card');
-    var ms = getComputedStyle(main), cs = getComputedStyle(card);
-    var sy = window.scrollY || 0;
-    var rows = [];
-    var all = main.querySelectorAll('*');
-    for (var i = 0; i < all.length; i++) {
-      var el = all[i];
-      if (!el.offsetHeight) continue;
-      var b = Math.round(el.getBoundingClientRect().bottom + sy);
-      rows.push({ b: b, t: el.tagName + '.' + String(el.className).split(' ')[0] });
-    }
-    rows.sort(function(a, z){ return z.b - a.b; });
-    var top = rows.slice(0, 8).map(function(r){ return r.t + '@' + r.b; }).join(' | ');
-    dbg.textContent = 'mainPadT=' + ms.paddingTop + ' mainPadB=' + ms.paddingBottom +
-      ' mainMargB=' + ms.marginBottom + ' cardMargT=' + cs.marginTop + ' cardMargB=' + cs.marginBottom +
-      ' mainBottom=' + Math.round(main.getBoundingClientRect().bottom + sy) +
-      '\nDEEPEST: ' + top;
+    if (!main) return;
+    var h = Math.round(main.getBoundingClientRect().bottom + (window.scrollY || 0)) + 4;
+    if (h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
   }
-  window.addEventListener('load', show);
-  setInterval(show, 1000);
-  setTimeout(show, 300);
+  window.addEventListener('load', post);
+  window.addEventListener('resize', post);
+  document.addEventListener('click', function(){ setTimeout(post, 60); setTimeout(post, 350); }, true);
+  setInterval(post, 900);
+  post();
 } catch(e){} })();
