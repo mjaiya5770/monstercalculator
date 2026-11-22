@@ -1132,24 +1132,31 @@
 
 /* NN-EMBED-FIT (2026-11-21): in embed mode, report the content height to the
    parent page so the hero frame sizes itself to the calculator — the widget
-   fits fully with no internal scrolling. v7: true document height, capped a
-   generous margin past the lowest real content (card / embed bar / results /
-   actions toolbar) so the frame can never inflate itself. */
+   fits fully with no internal scrolling. v8: dead layout space after the
+   calculator is hidden in JS (only elements that hold no calculator, results
+   or actions), then the true document height is reported. */
 (function(){ try {
   if (!document.documentElement.classList.contains('nn-embed')) return;
   if (window.parent === window) return;
+  var KEEP = '.nn-calc-card, .nn-embed-bar, .results, .nn-actions';
+  function clean() {
+    var main = document.querySelector('main');
+    if (!main || main.__nnCleaned) return;
+    var firstCard = main.querySelector('.nn-calc-card');
+    if (!firstCard) return;
+    main.__nnCleaned = true;
+    var all = main.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (el.closest('.nn-calc-card') || el.closest('.nn-actions')) continue;
+      if (el.matches(KEEP) || el.querySelector(KEEP)) continue;
+      if (firstCard.compareDocumentPosition(el) & 4) el.style.display = 'none';
+    }
+  }
   var last = 0;
   function post() {
-    var base = 0;
-    var els = document.querySelectorAll('.nn-calc-card, .nn-embed-bar, .results, .nn-actions');
-    for (var i = 0; i < els.length; i++) {
-      var el = els[i];
-      if (!el.offsetHeight) continue;
-      var b = el.getBoundingClientRect().bottom + (window.scrollY || 0);
-      if (b > base) base = b;
-    }
-    if (!base) return;
-    var h = Math.min(document.documentElement.scrollHeight, base + 130) + 8;
+    clean();
+    var h = document.documentElement.scrollHeight + 6;
     if (h !== last) { last = h; window.parent.postMessage({ nnEmbedHeight: h }, '*'); }
   }
   window.addEventListener('load', post);
