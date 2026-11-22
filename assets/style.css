@@ -2118,8 +2118,8 @@ html[data-skin] .nn-signature {
    content (formula, examples, FAQ) stays below the fold.
    ============================================================ */
 /* Hero calculator: viewport-aware frame instead of a fixed 640px box */
-#hcFrame{height:min(560px,calc(100dvh - 190px))!important;min-height:440px;border-radius:12px}
-@media (max-width:560px){#hcFrame{height:calc(100dvh - 170px)!important;min-height:440px}}
+#hcFrame{height:min(560px,calc(100dvh - 190px));min-height:400px;border-radius:12px}
+@media (max-width:560px){#hcFrame{height:calc(100dvh - 170px);min-height:400px}}
 .hero-calc{max-width:440px}
 /* Compact calculator card: tightened spacing scale */
 .nn-calc-card{padding:clamp(12px,2.4vw,20px)}
@@ -2139,6 +2139,7 @@ html.nn-embed main .wrap{padding-top:8px;padding-bottom:8px}
 html.nn-embed .nn-embed-bar{margin-bottom:9px;padding:7px 11px}
 /* Embed v2: the widget alone fills the frame — no short-answer box, tighter fields */
 html.nn-embed .nn-answer{display:none!important}
+html.nn-embed .tool-title{display:none!important}
 html.nn-embed .nn-calc-card .field{margin-bottom:7px}
 html.nn-embed .nn-calc-card .field input,html.nn-embed .nn-calc-card .field select{padding:8px 10px}
 html.nn-embed .nn-calc-card>.btn{padding:10px 16px}
