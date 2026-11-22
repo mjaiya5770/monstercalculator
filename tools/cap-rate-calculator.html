@@ -48,6 +48,7 @@
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8058544460943611" crossorigin="anonymous"></script>
 <!-- NN-EMBED --><script>if(/[?&]embed=1(&|$)/.test(window.location.search))document.documentElement.classList.add("nn-embed");</script>
+<script>if(/[?&]embed=1(&|$)/.test(window.location.search))window.location.replace("../widgets/cap-rate-calculator.html?embed=1");</script>
 </head>
 <body>
 <header class="site-header">
@@ -61,40 +62,15 @@
   <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../calculators.html#cat-real-estate-investor-tools">Real estate investor tools</a> › Cap Rate Calculator</div>
 <div class="nn-ad nn-ad-top" data-k728="277b0aaf6be197cbf43956912cdc9bd8" data-k320="c1dac9918d6bd3576a22e928e0aa2cff"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
   <h1 class="tool-title">Cap Rate Calculator</h1>
+   <div class="card nn-use-cta">
+     <h2>Use the Cap Rate Calculator calculator</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/cap-rate-calculator.html">Open the Cap Rate Calculator calculator &rarr;</a></p>
+   </div>
+   
   <p class="lede">Find a rental property's capitalization rate in seconds: net operating income divided by current market value. Compare deals on an apples-to-apples basis, with or without financing.</p>
 
-  <div class="card nn-calc-card">
-    <div class="row">
-      <div class="field"><label for="value">Property value / price ($)</label><input id="value" type="number" value="350000" min="0"></div>
-      <div class="field"><label for="income">Annual gross rental income ($)</label><input id="income" type="number" value="36000" min="0"></div>
-    </div>
-    <div class="field"><label for="expenses">Annual operating expenses ($)</label><input id="expenses" type="number" value="12000" min="0">
-      <div class="hint">Include: property tax, insurance, maintenance &amp; repairs, property management, vacancy allowance, HOA. Do NOT include mortgage payments — cap rate is measured before financing.</div>
-    </div>
-    <button class="btn" onclick="calc()">Calculate cap rate</button>
-    <div class="nn-actions no-print" data-nn-actions>
-  <button type="button" class="nn-btn" data-nn="share">🔗 Copy link to this result</button>
-  <button type="button" class="nn-btn" data-nn="copy">📋 Copy result</button>
-  <button type="button" class="nn-btn" data-nn="save">💾 Save this calculation</button>
-  <button type="button" class="nn-btn" data-nn="print">🖨️ Print / Save PDF</button>
-</div>
-<div class="nn-saves no-print" id="nnSavesPanel" hidden></div>
-<p class="nn-embed-link no-print"><a href="../embed.html#cap-rate-calculator">Embed this calculator on your site — free</a></p>
-<div class="results" id="results">
-      <div style="color:var(--muted);font-size:.9rem">Capitalization rate</div>
-      <div class="big" id="rCap">0%</div>
-      <p class="verdict" id="verdict"></p>
-<table>
-        <tr><td>Net operating income (NOI)</td><td id="rNoi">$0</td></tr>
-        <tr><td>Annual gross rental income</td><td id="rIncome">$0</td></tr>
-        <tr><td>Annual operating expenses</td><td id="rExp">$0</td></tr>
-        <tr><td>Property value</td><td id="rVal">$0</td></tr>
-        <tr><td>Monthly net operating income</td><td id="rMonthly">$0</td></tr>
-      </table>
-    
-<div class="nn-signature no-print" data-nn-signature hidden><div class="nn-sig-title">How the cap rate is built</div><div class="nn-sig-body"></div></div>
-</div>
-  </div>
+  
 <div class="nn-ad" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
 
   <div class="card">
@@ -151,7 +127,12 @@
   </div>
 </main>
 <div class="nn-ad nn-ad-bottom" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
-<section class="related-tools">
+<div class="card nn-use-cta">
+     <h2>Ready to run your numbers?</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/cap-rate-calculator.html">Open the Cap Rate Calculator calculator &rarr;</a></p>
+   </div>
+   <section class="related-tools">
   <h2>Related tools</h2>
   <ul>
     <li><a href="cash-on-cash-calculator.html">Cash-on-Cash Return Calculator</a></li>
@@ -161,49 +142,7 @@
   </ul>
 </section>
 <footer class="site-footer"><div class="wrap"><div>© 2026 Monster Calculator</div><div><a href="../terms.html">Terms</a> · <a href="../privacy.html">Privacy</a> · <a href="../index.html">All tools</a> · <a href="../calculators.html">Calculators</a> · <a href="../embed.html">Embed</a> · <a href="../partnerships.html">Partnerships</a> · <a href="../creator-roi-calculators.html">Creator ROI</a></div></div></footer>
-<script>
-function fmt(n){return n.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});}
-function calc(){
-  const value=+document.getElementById('value').value||0,
-        income=+document.getElementById('income').value||0,
-        expenses=+document.getElementById('expenses').value||0;
-  const noi=Math.max(income-expenses,0);
-  const cap=value>0?(noi/value)*100:0;
-  document.getElementById('rCap').textContent=cap.toFixed(2)+'%';
-  document.getElementById('rNoi').textContent=fmt(noi);
-  document.getElementById('rIncome').textContent=fmt(income);
-  document.getElementById('rExp').textContent=fmt(expenses);
-  document.getElementById('rVal').textContent=fmt(value);
-  document.getElementById('rMonthly').textContent=fmt(noi/12);
-  document.getElementById('verdict').textContent='Net operating income of '+fmt(noi)+' a year on a '+fmt(value)+' property is a '+cap.toFixed(2)+'% cap rate — '+fmt(noi/12)+' a month before any mortgage.';sigSet(null,sigLadderHTML([['Gross rental income',fmt(income)],['− operating expenses',fmt(expenses)],['= net operating income (NOI)',fmt(noi)],['÷ property value',fmt(value)],['Cap rate',cap.toFixed(2)+'%']],null)+sigStackHTML([['Operating expenses',expenses],['NOI kept',noi]],income,fmt));
-  document.getElementById('results').classList.add('show');
-}
-calc();
 
-/*P4SIG*/
-function sigSlotBody(){var s=document.querySelector('[data-nn-signature]');return s?s.querySelector('.nn-sig-body'):null;}
-function sigSet(title,html){var b=sigSlotBody();if(!b)return;b.innerHTML=(title?'<p class="sig-title">'+title+'</p>':'')+html;}
-function sigMoney(v){return (v<0?'-$':'$')+Math.abs(Math.round(v)).toLocaleString('en-US');}
-var fmt0=(typeof fmt0==='function')?fmt0:function(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});};
-var fmt1=(typeof fmt1==='function')?fmt1:function(n){return n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});};
-var money=(typeof money==='function')?money:function(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
-var money0=(typeof money0==='function')?money0:function(n){return '$'+Math.round(n).toLocaleString('en-US');};
-
-function sigLadderHTML(steps,note){var h='<div class="sig-ladder">';for(var i=0;i<steps.length;i++){var s=steps[i];h+='<div class="sig-lstep"><span class="sig-lstep-main"><span class="sig-dot s-'+(i%4===0?'a':i%4===1?'b':i%4===2?'c':'d')+'"></span>'+s[0]+'</span><strong>'+s[1]+'</strong></div>';if(s[2]){h+='<div class="sig-lstep-sub">'+s[2]+'</div>';}}h+='</div>';if(note){h+='<p class="sig-note">'+note+'</p>';}return h;}
-
-function sigStackHTML(segs,total,fmt,note){
-  var vis=segs.filter(function(s){return s[1]>0;});
-  if(!vis.length||!(total>0))return '';
-  var bar=vis.map(function(s,i){
-    var pct=Math.max(0,Math.min(100,s[1]/total*100));
-    return '<span class="sig-stack-seg s-'+String.fromCharCode(97+(i%5))+'" style="width:'+pct.toFixed(2)+'%"></span>';
-  }).join('');
-  var leg=vis.map(function(s,i){
-    return '<div class="sig-leg-row"><span class="sig-dot s-'+String.fromCharCode(97+(i%5))+'"></span><span class="sig-leg-label">'+s[0]+'</span><strong>'+fmt(s[1])+' · '+(s[1]/total*100).toFixed(0)+'%</strong></div>';
-  }).join('');
-  return '<div class="sig-stackbar" role="img" aria-label="Composition breakdown">'+bar+'</div>'+leg+(note?'<div class="sig-note">'+note+'</div>':'');
-}
-/*P4STACK-END*/</script>
 <script src="../assets/ads.js"></script>
 <script src="../assets/track.js"></script>
 <script src="../assets/nn-tools.js"></script>

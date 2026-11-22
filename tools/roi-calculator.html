@@ -48,6 +48,7 @@
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8058544460943611" crossorigin="anonymous"></script>
 <!-- NN-EMBED --><script>if(/[?&]embed=1(&|$)/.test(window.location.search))document.documentElement.classList.add("nn-embed");</script>
+<script>if(/[?&]embed=1(&|$)/.test(window.location.search))window.location.replace("../widgets/roi-calculator.html?embed=1");</script>
 </head>
 <body>
 <header class="site-header">
@@ -61,37 +62,15 @@
   <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../calculators.html#cat-real-estate-investor-tools">Real estate investor tools</a> › ROI Calculator</div>
 <div class="nn-ad nn-ad-top" data-k728="277b0aaf6be197cbf43956912cdc9bd8" data-k320="c1dac9918d6bd3576a22e928e0aa2cff"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
   <h1 class="tool-title">ROI Calculator</h1>
+   <div class="card nn-use-cta">
+     <h2>Use the ROI Calculator calculator</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/roi-calculator.html">Open the ROI Calculator calculator &rarr;</a></p>
+   </div>
+   
   <p class="lede">Measure the return on any investment — stocks, real estate, or a business — with total ROI and an annualized figure you can compare across deals.</p>
 
-  <div class="card nn-calc-card">
-    <div class="row">
-      <div class="field"><label for="invested">Amount invested ($)</label><input id="invested" type="number" value="10000" min="0"></div>
-      <div class="field"><label for="returned">Amount returned ($)</label><input id="returned" type="number" value="15000" min="0"><div class="hint">Total value received: sale proceeds, payouts, or current value.</div></div>
-    </div>
-    <div class="field"><label for="years">Years held</label><input id="years" type="number" value="1" step="0.1" min="0.1"><div class="hint">Used to annualize the return so multi-year investments are comparable.</div></div>
-    <button class="btn" onclick="calc()">Calculate ROI</button>
-    <div class="nn-actions no-print" data-nn-actions>
-  <button type="button" class="nn-btn" data-nn="share">🔗 Copy link to this result</button>
-  <button type="button" class="nn-btn" data-nn="copy">📋 Copy result</button>
-  <button type="button" class="nn-btn" data-nn="save">💾 Save this calculation</button>
-  <button type="button" class="nn-btn" data-nn="print">🖨️ Print / Save PDF</button>
-</div>
-<div class="nn-saves no-print" id="nnSavesPanel" hidden></div>
-<p class="nn-embed-link no-print"><a href="../embed.html#roi-calculator">Embed this calculator on your site — free</a></p>
-<div class="results" id="results">
-      <div style="color:var(--muted);font-size:.9rem">Return on investment</div>
-      <div class="big" id="rROI">0%</div>
-      <p class="verdict" id="verdict"></p>
-<table>
-        <tr><td>Net gain</td><td id="rGain">$0</td></tr>
-        <tr><td>Annualized ROI</td><td id="rAnn">0%</td></tr>
-        <tr><td>Amount invested</td><td id="rInv">$0</td></tr>
-        <tr><td>Amount returned</td><td id="rRet">$0</td></tr>
-      </table>
-    
-<div class="nn-signature no-print" data-nn-signature hidden><div class="nn-sig-title">How the return builds</div><div class="nn-sig-body"></div></div>
-</div>
-  </div>
+  
 <div class="nn-ad" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
 
   <div class="card">
@@ -147,7 +126,12 @@
   </div>
 </main>
 <div class="nn-ad nn-ad-bottom" data-key="5fe034b641bcda0b76cb353038db13d9" data-w="300" data-h="250"><div class="nn-ad-label">Advertisement</div><a class="nn-house" href="../calculators.html"><strong>Monster Calculator — every calculator, free</strong><span>The mega-library: money, home, health &amp; everyday math. No signup, ever →</span></a></div>
-<section class="related-tools">
+<div class="card nn-use-cta">
+     <h2>Ready to run your numbers?</h2>
+     <p>The calculator itself lives on the landing page — open it there and it is ready in the module, sized to fit your screen with no scrolling through a long page to find the form.</p>
+     <p><a class="btn" href="../index.html?use=tools/roi-calculator.html">Open the ROI Calculator calculator &rarr;</a></p>
+   </div>
+   <section class="related-tools">
   <h2>Related tools</h2>
   <ul>
     <li><a href="cap-rate-calculator.html">Cap Rate Calculator</a></li>
@@ -157,39 +141,7 @@
   </ul>
 </section>
 <footer class="site-footer"><div class="wrap"><div>© 2026 Monster Calculator</div><div><a href="../terms.html">Terms</a> · <a href="../privacy.html">Privacy</a> · <a href="../index.html">All tools</a> · <a href="../calculators.html">Calculators</a> · <a href="../embed.html">Embed</a> · <a href="../partnerships.html">Partnerships</a> · <a href="../creator-roi-calculators.html">Creator ROI</a></div></div></footer>
-<script>
-function fmt(n){return n.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});}
-function pct(n){return (n*100).toFixed(2)+'%';}
-function calc(){
-  const inv=+document.getElementById('invested').value||0,
-        ret=+document.getElementById('returned').value||0,
-        yrs=+document.getElementById('years').value||0;
-  let roi=0, ann=0;
-  if(inv>0){
-    roi=(ret-inv)/inv;
-    if(yrs>0 && ret>=0){ ann=Math.pow(ret/inv,1/yrs)-1; }
-  }
-  document.getElementById('rROI').textContent=pct(roi);
-  document.getElementById('rGain').textContent=fmt(ret-inv);
-  document.getElementById('rAnn').textContent=pct(ann);
-  document.getElementById('rInv').textContent=fmt(inv);
-  document.getElementById('rRet').textContent=fmt(ret);
-  document.getElementById('verdict').textContent='You put in '+fmt(inv)+' and got back '+fmt(ret)+' — a gain of '+fmt(ret-inv)+', or '+pct(roi)+' total'+(yrs>0?' ('+pct(ann)+' a year annualized).':'.');sigSet(null,sigLadderHTML([['Invested',fmt(inv)],['Gain',fmt(ret-inv)],['Total return',pct(roi)],['Annualized',pct(ann)]],null));
-  document.getElementById('results').classList.add('show');
-}
-calc();
 
-/*P4SIG*/
-function sigSlotBody(){var s=document.querySelector('[data-nn-signature]');return s?s.querySelector('.nn-sig-body'):null;}
-function sigSet(title,html){var b=sigSlotBody();if(!b)return;b.innerHTML=(title?'<p class="sig-title">'+title+'</p>':'')+html;}
-function sigMoney(v){return (v<0?'-$':'$')+Math.abs(Math.round(v)).toLocaleString('en-US');}
-var fmt0=(typeof fmt0==='function')?fmt0:function(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});};
-var fmt1=(typeof fmt1==='function')?fmt1:function(n){return n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});};
-var money=(typeof money==='function')?money:function(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
-var money0=(typeof money0==='function')?money0:function(n){return '$'+Math.round(n).toLocaleString('en-US');};
-
-function sigLadderHTML(steps,note){var h='<div class="sig-ladder">';for(var i=0;i<steps.length;i++){var s=steps[i];h+='<div class="sig-lstep"><span class="sig-lstep-main"><span class="sig-dot s-'+(i%4===0?'a':i%4===1?'b':i%4===2?'c':'d')+'"></span>'+s[0]+'</span><strong>'+s[1]+'</strong></div>';if(s[2]){h+='<div class="sig-lstep-sub">'+s[2]+'</div>';}}h+='</div>';if(note){h+='<p class="sig-note">'+note+'</p>';}return h;}
-</script>
 <script src="../assets/ads.js"></script>
 <script src="../assets/track.js"></script>
 <script src="../assets/nn-tools.js"></script>
