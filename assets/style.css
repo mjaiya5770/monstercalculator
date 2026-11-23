@@ -2287,3 +2287,11 @@ html.nn-embed .results .big{font-size:2.1rem}
   html.nn-embed .results{padding:13px 14px}
   html.nn-embed .results .big{font-size:1.75rem}
 }
+
+/* NN-FIT12 (2026-11-22, owner ruling: ONE calculator under the hero — it swaps
+   when another calculator is selected; no hero calculator, no duplicate): the
+   single module sits flush in the under-hero band beside the ad seat. */
+@media(min-width:1025px){.hero-wrap{grid-template-columns:1fr!important}}
+.hero-copy{max-width:780px}
+.nn-uh-calc.card{background:transparent;border:0;box-shadow:none;padding:0}
+.nn-uh-calc .hero-calc{margin:0;width:100%}
