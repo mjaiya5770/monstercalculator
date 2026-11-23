@@ -2215,7 +2215,7 @@ main .card h2{margin-bottom:.45em}
 .hc-bar-btn{font-size:.78rem;padding:4px 7px}
 .hc-title{font-size:.94rem;min-width:0}
 
-/* NN-COMPACT (2026-11-21, Mundeep: "optimize and compact each calculator"):
+/* NN-COMPACT (2026-11-21, owner: "optimize and compact each calculator"):
    tighter embed-mode spacing across every calculator widget — less padding,
    slimmer fields and result panel — so each calculator sits shorter in the
    hero frame while tap targets stay comfortable. */
