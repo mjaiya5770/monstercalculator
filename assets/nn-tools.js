@@ -1234,6 +1234,7 @@
       try { window.scrollTo(0, 0); } catch(e){}
       try { window.dispatchEvent(new Event('resize')); } catch(e){}
     }
+    card.addEventListener('click', function(e){ if (e.target && e.target.closest && e.target.closest('.segmented, .seg-btn, select')) setTimeout(function(){ show(cur); }, 90); });
     back.addEventListener('click', function(){ show(cur - 1); });
     next.addEventListener('click', function(){ show(cur + 1); });
     restart.addEventListener('click', function(){ try { location.reload(); } catch(e){} });
